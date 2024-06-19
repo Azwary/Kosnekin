@@ -23,12 +23,6 @@ new #[Layout('layouts.guest')] class extends Component {
     }
 }; ?>
 
-{{-- <div>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
-
-
-</div> --}}
 <div class="row">
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -69,12 +63,9 @@ new #[Layout('layouts.guest')] class extends Component {
 
                 <div class="flex items-center justify-end mt-4">
 
-                    <x--button class="ms-3 btn-primary btn-user btn-block ">
+                    <x-primary-button class="ms-3 btn-primary btn-user btn-block ">
                         {{ __('Log in') }}
-                    </x--button>
-                    <a type="submit" class="btn btn-primary btn-user btn-block">
-                        {{ __('Log in') }}
-                    </a>
+                    </x-primary-button>
                 </div>
             </form>
             {{-- <form class="user">
@@ -106,17 +97,19 @@ new #[Layout('layouts.guest')] class extends Component {
                 </a>
             </form> --}}
             <hr>
-            @if (Route::has('password.request'))
-                <a class="text-center text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    href="{{ route('password.request') }}" wire:navigate>
-                    {{ __('Forgot Password?') }}
-                </a>
-            @endif
-            <div class="text-center">
-                <a class="small" href="forgot-password.html"></a>
-            </div>
-            <div class="text-center">
-                <a class="small" href="register.html">Create an Account!</a>
+            <div class="">
+                @if (Route::has('password.request'))
+                    <a class="text-center text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        href="{{ route('password.request') }}" wire:navigate>
+                        {{ __('Forgot Password?') }}
+                    </a>
+                @endif
+                <div>
+                    <a class="text-center text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        href="{{ route('register') }}" wire:navigate>
+                        {{ __('Create an Account!') }}
+                    </a>
+                </div>
             </div>
         </div>
     </div>
