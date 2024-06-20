@@ -36,7 +36,7 @@
             </div>
         </div>
     </body> --}}
-    <body class="bg-gradient-primary">
+    <body class="bg-[#01FE87]">
         <div class="container">
 
             <!-- Outer Row -->
