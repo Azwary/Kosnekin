@@ -59,12 +59,10 @@ new #[Layout('layouts.guest')] class extends Component {
                     </div>
                     <!-- Email Address -->
                     <div class="form-group">
-                        <div class="mt-4">
-                            <x-input-label for="email" :value="__('Email')" />
-                            <x-text-input wire:model="email" id="email" class="block mt-1 w-full" type="email"
-                                name="email" required autocomplete="username" placeholder="Email Address" />
-                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                        </div>
+                        <x-input-label for="email" :value="__('Email')" />
+                        <x-text-input wire:model="email" id="email" class="block mt-1 w-full" type="email"
+                            name="email" required autocomplete="username" placeholder="Email Address" />
+                        <x-input-error :messages="$errors->get('email')" class="mt-2" />
                     </div>
                     <div class="form-group row">
                         <!-- Password -->
@@ -93,27 +91,20 @@ new #[Layout('layouts.guest')] class extends Component {
                             {{ __('Register') }}
                         </x-primary-button>
                     </div>
-                   {{-- <div
-                     <a href="login.html" class="btn btn-primary btn-user btn-block">
-                        Register Account
-                    </a>
-                    <hr>
-                    <a href="index.html" class="btn btn-google btn-user btn-block">
-                        <i class="fab fa-google fa-fw"></i> Register with Google
-                    </a>
-                    <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                        <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                    </a>
-                   </div> --}}
                 </form>
-                <hr>
-                <div class="text-center">
-                    <a class="text-center text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                      href="{{ route('password.request') }}">Forgot Password?</>
-                </div>
-                <div class="text-center">
-                    <a class="text-center text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                     href="{{ route('login') }}">Already have an account? Login!</a>
+                <div class="text-center mt-4">
+                    @if (Route::has('password.request'))
+                        <a class="text-center text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            href="{{ route('password.request') }}" wire:navigate>
+                            {{ __('Forgot Password?') }}
+                        </a>
+                    @endif
+                    <div>
+                        <a class="text-center text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            href="{{ route('login') }}" wire:navigate>
+                            {{ __('Already have an account? Login!') }}
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
