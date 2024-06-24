@@ -12,6 +12,7 @@ class Kriteria extends Component
     public $main = true;
     public $add = false;
     public $ubah = false;
+    public $addsub = false;
 
     public $kriteriaa, $kode_kriteria, $nama_kriteria,  $jenis, $bobot;
     public $nama_jenis;
@@ -40,6 +41,7 @@ class Kriteria extends Component
         $this->main = true;
         $this->add = false;
         $this->ubah = false;
+        $this->addsub = false;
     }
 
     public function create()
