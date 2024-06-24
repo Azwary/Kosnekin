@@ -1,28 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>SB Admin 2 - Dashboard</title>
-
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
-</head>
-
-<body id="page-top">
+<div id="page-top">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -121,7 +97,7 @@
                     <span>Penilaian</span></a>
             </li>
 
-          
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -351,146 +327,228 @@
                 </nav>
                 <!-- End of Topbar -->
 
-<body>
-    <div class="container mt-5">
-        <div class="card">
-            <div class="card-header bg-primary text-white">
-                Tambah Data Kamar Kos
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Sub Kriteria</h1>
+
+
+
+                      <style>
+                        .margin-bottom-20 {
+                            margin-bottom: 20px;
+                        }
+                    </style>
+
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" >
+
+
+                                <tbody>
+                                    <tr>
+                                        <td>Nama Kriteria</td>
+                                        <td>:C1-Jarak kost</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Bobot</td>
+                                        <td>:15</td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td>Tipe</td>
+                                        <td>:cost</td>
+
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                      <div class="container text-center">
+
+
+
+                    <a href="kriteria.html" class="btn btn-warning btn-sm"> Kembali </a>
+                      </div>
+
+                      <br>
+
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Data
+                                Tabel Sub Kriteria</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" >
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama Subkriteria</th>
+                                            <th>Bobot</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>50 meter</td>
+                                            <td>1</td>
+                                            <td>
+                                            <a href="ubahsubkriteria.html" class="btn btn-success btn-sm"> Ubah </a>
+                                            <button class="btn btn-danger btn-sm">Hapus</button>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>>50-250 meter</td>
+                                            <td>2</td>
+                                            <td><button class="btn btn-success btn-sm">Ubah</button>
+                                                <button class="btn btn-danger btn-sm">Hapus</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>>250m-1km</td>
+                                            <td>3</td>
+                                            <td><button class="btn btn-success btn-sm">Ubah</button>
+                                                <button class="btn btn-danger btn-sm">Hapus</button>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>4</td>
+                                            <td>>1km-2,5km</td>
+                                            <td>4</td>
+                                            <td><button class="btn btn-success btn-sm">Ubah</button>
+                                                <button class="btn btn-danger btn-sm">Hapus</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
             </div>
-            <div class="card-body">
-                <form id="addKriteriaForm">
-                    <div class="form-group">
-                        <label for="kodeKriteria">Kode Kos</label>
-                        <input type="text" class="form-control" id="kodeKriteria" name="kodeKriteria" required>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
                     </div>
-                    <div class="form-group">
-                        <label for="namaKriteria">Nama Kos</label>
-                        <input type="text" class="form-control" id="namaKriteria" name="namaKriteria" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="jenisKriteria">Jarak Kos</label>
-                        <select class="form-control" id="jenisKriteria" name="jenisKriteria" required>
-                            <option value="50 meter">50 meter</option>
-                            <option value=">50-250 meter">>50-250 meter</option>
+                </div>
+            </footer>
+            <!-- End of Footer -->
 
-                            <option value=">250meter-1km">250meter-1km</option>
+        </div>
+        <!-- End of Content Wrapper -->
 
-                            <option value=">1-2,5km">>1-2,5km</option>
+    </div>
+    <!-- End of Page Wrapper -->
 
-                            
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></
 
-                        </select>
-                    </div>
+i>
+    </a>
 
-                    
-                    <div class="form-group">
-                        <label for="jenisKriteria">Biaya</label>
-                        <select class="form-control" id="jenisKriteria" name="jenisKriteria" required>
-                            <option value=""><=Rp.700.000-Rp.900.000</option>
-                            <option value="">>Rp.900.000-Rp.1.300.000</option>
-
-                            <option value="">Rp.1.3000.000-Rp.1.600.000</option>
-
-                            <option value="">>Rp.1.600.000-Rp.2.000.000</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="jenisKriteria">Fasilitas </label>
-                        <select class="form-control" id="jenisKriteria" name="jenisKriteria" required>
-                            <option value="">kasur,lemari</option>
-                            <option value="">kasur,lemari,dan kipas</option>
-
-                            <option value="">kasur,lemari,kipas/AC,dan kamar mandi dalam</option>
-
-                            <option value="">kasur,lemari,kipas/AC,dan kamar mandi dalam,Wifi dan parkir luas</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="jenisKriteria">Lokasi Pendukung</label>
-                        <select class="form-control" id="jenisKriteria" name="jenisKriteria" required>
-                            <option value="">Dekat dengan tempat makan</option>
-                            <option value="">Dekat dengan tempat makan dan tempat ibadah</option>
-
-                            <option value="">Dekat dengan tempat makan,tempat ibadah dan tempat hiburan</option>
-
-                            <option value="">Dekat dengan tempat makan,warung,tempat ibadah dan tempat hiburan</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="jenisKriteria">Keamanan</label>
-                        <select class="form-control" id="jenisKriteria" name="jenisKriteria" required>
-                            <option value="">Tidak ada keamanan</option>
-                            <option value="">Satpam/penjaga</option>
-
-                            <option value="">CCTV</option>
-
-                            <option value="">CCTV dan satpam/penjaga</option>
-                        </select>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="jenisKriteria">Ukuran Ruangan</label>
-                        <select class="form-control" id="jenisKriteria" name="jenisKriteria" required>
-                            <option value="">3x3 M </option>
-                            <option value="">3x4 M</option>
-
-                            <option value="">4x5 M</option>
-
-                            <option value="">5x6 M</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="jenisKriteria">Batas Jam Malam</label>
-                        <select class="form-control" id="jenisKriteria" name="jenisKriteria" required>
-                            <option value="">21:00-22:00</option>
-                            <option value="">23:00-24:00</option>
-
-                            <option value="">01:00-02:00</option>
-
-                            <option value="">Tidak ada batas jam malam</option>
-                        </select>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="jenisKriteria">Jenis Listrik</label>
-                        <select class="form-control" id="jenisKriteria" name="jenisKriteria" required>
-                            <option value="">Pascabayar/bulanan</option>
-                            <option value="">Prabayar/token listrik</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="jenisKriteria">Kebersihan Kos</label>
-                        <select class="form-control" id="jenisKriteria" name="jenisKriteria" required>
-                            <option value="">Dibersihkan seminggu sekali</option>
-                            <option value="">Dibersihkan seminggu sekali</option>
-
-                            <option value="">Dibersihkan sebulan sekali</option>
-
-                        </select>
-                    </div>
-
-                    
-                  
-                    <button type="submit" class="btn btn-primary">Tambah</button>
-                    <a href="datakos.html" class="btn btn-secondary">Batal</a>
-                </form>
+    <!-- Tambah Kriteria Modal-->
+    <div class="modal fade" id="addKriteriaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tambah Kriteria</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="addKriteriaForm">
+                        <div class="form-group">
+                            <label for="kodeKriteria">Kode</label>
+                            <input type="text" class="form-control" id="kodeKriteria" name="kodeKriteria" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="namaKriteria">Nama</label>
+                            <input type="text" class="form-control" id="namaKriteria" name="namaKriteria" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="jenisKriteria">Jenis</label>
+                            <select class="form-control" id="jenisKriteria" name="jenisKriteria" required>
+                                <option value="Benefit">Benefit</option>
+                                <option value="Cost">Cost</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="bobotKriteria">Bobot</label>
+                            <input type="number" class="form-control" id="bobotKriteria" name="bobotKriteria" step="0.01" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Tambah</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Bootstrap core JavaScript -->
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Script untuk menambah data kriteria -->
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
+
     <script>
+        // Handle form submission for adding new criteria
         document.getElementById('addKriteriaForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
@@ -499,13 +557,22 @@
             var jenis = document.getElementById('jenisKriteria').value;
             var bobot = document.getElementById('bobotKriteria').value;
 
-            // Kirim data atau tambahkan ke tabel lain jika diperlukan
-            console.log('Kode: ' + kode + ', Nama: ' + nama + ', Jenis: ' + jenis + ', Bobot: ' + bobot);
+            // Add the new row to the table
+            var table = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
+            var newRow = table.insertRow();
+            newRow.innerHTML = '<td>' + kode + '</td><td>' + nama + '</td><td>' + jenis + '</td><td>' + bobot + '</td><td><button class="btn btn-danger btn-sm">Hapus</button></td>';
 
-            // Contoh pengalihan ke halaman lain (kriteria.html)
-            // window.location.href = 'kriteria.html';
+            // Clear the form
+            document.getElementById('addKriteriaForm').reset();
+            $('#addKriteriaModal').modal('hide');
+        });
+
+        // Handle deletion of rows
+        document.getElementById('dataTable').addEventListener('click', function(event) {
+            if (event.target && event.target.matches('button.btn-danger')) {
+                var row = event.target.closest('tr');
+                row.parentNode.removeChild(row);
+            }
         });
     </script>
-</body>
-
-</html>
+</div>
