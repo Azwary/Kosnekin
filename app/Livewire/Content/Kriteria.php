@@ -24,7 +24,7 @@ class Kriteria extends Component
     protected $rules = [
         'nama_kriteria' => 'required|string|max:255',
         'jenis' => 'required|string',
-        'bobot' => 'required|numeric|min:0|max:1',
+        'bobot' => 'required|numeric|min:0|max:5',
     ];
 
     public function render()
