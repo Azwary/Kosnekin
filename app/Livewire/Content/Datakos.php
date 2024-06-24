@@ -2,7 +2,16 @@
 
 namespace App\Livewire\Content;
 
+use App\Models\batas_jam_malam;
+use App\Models\biaya;
 use App\Models\datakos as ModelsDatakos;
+use App\Models\fasilitas;
+use App\Models\jarak;
+use App\Models\jenis_listrik;
+use App\Models\keamanan;
+use App\Models\kebersihan_kos;
+use App\Models\lokasi_pendukung;
+use App\Models\ukuran_ruangan;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
@@ -10,20 +19,14 @@ class Datakos extends Component
 {
     public $main = true;
     public $add = false;
-
-    public $nama_kos;
-    public $jarak_kos;
-    public $biaya;
-    public $fasilitas;
-    public $lokasi_pendukung;
-    public $keamanan;
-    public $ukuran_ruangan;
-    public $batas_jam_malam;
-    public $jenis_listrik;
-    public $kebersihan_kos;
+    public $ubah = false;
+    public $Datakos;
+    public $nama_kos, $alamat, $jarak_kos, $biaya, $fasilitas, $lokasi_pendukung, $keamanan, $ukuran_ruangan, $batas_jam_malam, $jenis_listrik, $kebersihan_kos;
+    public $jarak_kos_options, $biaya_options, $fasilitas_options, $lokasi_pendukung_options, $keamanan_options, $ukuran_ruangan_options, $batas_jam_malam_options, $jenis_listrik_options, $kebersihan_kos_options;
 
     protected $rules = [
         'nama_kos' => 'required|string|max:255',
+        'alamat' => 'required|string|max:255',
         'jarak_kos' => 'required|string',
         'biaya' => 'required|string',
         'fasilitas' => 'required|string',
@@ -35,16 +38,41 @@ class Datakos extends Component
         'kebersihan_kos' => 'required|string',
     ];
 
+    public function mount()
+    {
+        $this->Datakos = ModelsDatakos::all();
+        $this->jarak_kos_options = jarak::all();
+        $this->biaya_options = biaya::all();
+        $this->lokasi_pendukung_options = lokasi_pendukung::all();
+        $this->keamanan_options = keamanan::all();
+        $this->ukuran_ruangan_options = ukuran_ruangan::all();
+        $this->fasilitas_options = fasilitas::all();
+        $this->batas_jam_malam_options = batas_jam_malam::all();
+        $this->jenis_listrik_options = jenis_listrik::all();
+        $this->kebersihan_kos_options = kebersihan_kos::all();
+    }
 
     public function render()
     {
-        return view('livewire.content.datakos');
+        return view('livewire.content.datakos', [
+            'Datakos' => $this->Datakos,
+            'jarak_kos_options' => $this->jarak_kos_options,
+            'biaya_options' => $this->biaya_options,
+            'lokasi_pendukung_options' => $this->lokasi_pendukung_options,
+            'keamanan_options' => $this->keamanan_options,
+            'ukuran_ruangan_options' => $this->ukuran_ruangan_options,
+            'fasilitas_options' => $this->fasilitas_options,
+            'batas_jam_malam_options' => $this->batas_jam_malam_options,
+            'jenis_listrik_options' => $this->jenis_listrik_options,
+            'kebersihan_kos_options' => $this->kebersihan_kos_options,
+        ]);
     }
 
-    public function Home()
+    public function home()
     {
         $this->main = true;
         $this->add = false;
+        $this->ubah = false;
     }
 
     public function create()
@@ -55,14 +83,9 @@ class Datakos extends Component
 
     public function store()
     {
-        // Temukan opportunity berdasarkan id yang disimpan di properti
-        //$opportunity = ModelsDatakos::findOrFail($this->opportunity_id);
-
         $this->validate();
 
-        // Buat new applicant
         ModelsDatakos::create([
-            // 'id' => Str::uuid(),
             'nama_kos' => $this->nama_kos,
             'alamat' => $this->alamat,
             'jarak_kos' => $this->jarak_kos,
@@ -77,11 +100,8 @@ class Datakos extends Component
             'application_sent' => now(),
         ]);
 
-
-        // Set session flash message
         session()->flash('message', 'User created successfully.');
 
-        // Redirect ke halaman applicants
         return redirect()->to('datakos');
     }
 }

@@ -18,7 +18,7 @@ class datakos extends Model
     // public $incrementing = false;
     // Tentukan kolom yang dapat diisi secara massal
     protected $fillable = [
-        // 'id',
+        'id',
         'nama_kos',
         'alamat',
         'jarak_kos',
@@ -28,7 +28,7 @@ class datakos extends Model
         'ukuran_ruangan',
         'fasilitas',
         'batas_jam_malam',
-        'jenis_Listrik',
-        'kebersihan_Kos'
+        'jenis_listrik',
+        'kebersihan_kos'
     ];
 }

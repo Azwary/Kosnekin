@@ -12,17 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('kos', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
             $table->string('nama_kos');
             $table->string('alamat');
             $table->string('jarak_kos');
-            $table->integer('biaya');
+            $table->string('biaya');
             $table->string('lokasi_pendukung');
             $table->string('keamanan');
             $table->string('ukuran_ruangan');
             $table->string('fasilitas');
-            $table->date('batas_jam_malam');
-            $table->string('jenis_Listrik');
+            $table->string('batas_jam_malam');
+            $table->string('jenis_listrik');
             $table->string('kebersihan_kos');
             $table->softDeletes();
             $table->timestamps();
