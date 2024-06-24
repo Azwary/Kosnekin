@@ -11,6 +11,7 @@ class Kriteria extends Component
 
     public $main = true;
     public $add = false;
+    public $addsub = false;
 
     public $kode_kriteria;
     public $nama_kriteria;
@@ -34,12 +35,21 @@ class Kriteria extends Component
     {
         $this->main = true;
         $this->add = false;
+        $this->addsub = false;
     }
 
     public function create()
     {
         $this->main = false;
         $this->add = true;
+        $this->addsub = false;
+    }
+
+    public function createsub()
+    {
+        $this->main = false;
+        $this->add = false;
+        $this->addsub = true;
     }
 
     public function store()

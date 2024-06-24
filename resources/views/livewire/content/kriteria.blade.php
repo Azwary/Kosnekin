@@ -16,7 +16,8 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        {{-- <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"> --}}
+                        <table class="table">
                             <thead>
                                 <tr>
                                     <th>Kode</th>
@@ -45,7 +46,7 @@
 
                                         <a href="ubahkriteria.html" class="btn btn-success btn-sm"> Ubah </a>
                                         <button class="btn btn-danger btn-sm">Hapus</button>
-                                        <a href="tambahsubkriteria" class="btn btn-info btn-sm">Tambah Subkriteria
+                                        <a wire:click="createsub" class="btn btn-info btn-sm">Tambah Subkriteria
                                         </a>
                                         <a href="subkriteria" class="btn btn-info btn-sm"> Subkriteria </a>
                                     </td>
@@ -94,5 +95,34 @@
         </div>
     @endif
     <!-- /.container-fluid -->
+
+    @if ($addsub)
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                Tambah Data Subkriteria
+            </div>
+            <div class="card-body">
+                <form id="addKriteriaForm">
+                    <div class="form-group">
+                        <label for="no">No</label>
+                        <input type="number" class="form-control" id="no" name="no" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="namaSubkriteria">Nama Subkriteria</label>
+                        <input type="text" class="form-control" id="namaKriteria" name="namaKriteria" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bobot">Bobot</label>
+                        <input type="number" class="form-control" id="bobot" name="bobot" step="1" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Tambah</button>
+                    <a href="kriteria" class="btn btn-secondary">Batal</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    @endif
 
 </div>
