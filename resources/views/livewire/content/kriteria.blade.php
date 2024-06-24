@@ -329,11 +329,12 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
+                @if ($main)
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Kriteria</h1>
-                    <a href="tambahkriteria.html" id="addKriteriaButton" class="btn btn-primary mb-3">Tambah Kriteria</a>
+                    <a wire:click="create()" id="addKriteriaButton" class="btn btn-primary mb-3">Tambah Kriteria</a>
 
 
                     <!-- DataTales Example -->
@@ -404,10 +405,65 @@
                     </div>
 
                 </div>
+                @endif
                 <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
+
+            <!-- Tambah Kriteria Modal-->
+    @if($add)
+    <div class="container mt-5">
+        <div class="card">
+            <div class="satu" id="addKriteria" tabindex="-1" role="satu" aria-hidden="false">
+                <div class="dua" role="document">
+                    <div class="tiga">
+                        <div class="empat">
+                            <h5 class="title" id="exampleLabel">Tambah Kriteria</h5>
+                            <button class="close" type="button" aria-label="Close">
+                                <span aria-hidden="false">k</span>
+                            </button>
+                        </div>
+                        <div class="body">
+                            @if (session()->has('message'))
+                                <div class="alert alert-success">
+                                    {{ session('message') }}
+                                </div>
+                            @endif
+                            <form wire:submit.prevent="store">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="kodeKriteria">Kode</label>
+                                    <input type="text" class="form-control" id="kodeKriteria" wire:model="kode_kriteria" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="namaKriteria">Nama</label>
+                                    <input type="text" class="form-control" id="namaKriteria" wire:model="nama_kriteria" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="jenisKriteria">Jenis</label>
+                                    <select class="form-control" id="jenisKriteria" wire:model="jenis_kriteria" required>
+                                        <option value="Benefit">Benefit</option>
+                                        <option value="Cost">Cost</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bobotKriteria">Bobot</label>
+                                    <input type="number" class="form-control" id="bobotKriteria" wire:model="bobot_kriteria" step="0.01" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Tambah</button>
+                            </form>
+                        </div>
+                        <div class="lima">
+                            <button class="btn btn-secondary" type="button" >Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    @endif
 
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
@@ -432,47 +488,7 @@
 
     </a>
 
-    <!-- Tambah Kriteria Modal-->
-    <div class="modal fade" id="addKriteriaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tambah Kriteria</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="addKriteriaForm">
-                        <div class="form-group">
-                            <label for="kodeKriteria">Kode</label>
-                            <input type="text" class="form-control" id="kodeKriteria" name="kodeKriteria" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="namaKriteria">Nama</label>
-                            <input type="text" class="form-control" id="namaKriteria" name="namaKriteria" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="jenisKriteria">Jenis</label>
-                            <select class="form-control" id="jenisKriteria" name="jenisKriteria" required>
-                                <option value="Benefit">Benefit</option>
-                                <option value="Cost">Cost</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="bobotKriteria">Bobot</label>
-                            <input type="number" class="form-control" id="bobotKriteria" name="bobotKriteria" step="0.01" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Tambah</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
