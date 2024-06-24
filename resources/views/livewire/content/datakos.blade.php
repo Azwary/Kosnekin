@@ -332,71 +332,57 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Kriteria</h1>
-                    <a href="tambahkriteria.html" id="addKriteriaButton" class="btn btn-primary mb-3">Tambah Kriteria</a>
+                    <h1 class="h3 mb-2 text-gray-800">Data Kamar Kos</h1>
+                    <a href="tambahdatakos.html" id="addKriteriaButton" class="btn btn-primary mb-3">Tambah Data Kamar Kos</a>
 
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Data
-                                Tabel Kriteria</h6>
+                                Tabel Kamar Kos</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Kode</th>
-                                            <th>Nama Kriteria</th>
-                                            <th>Jenis</th>
-                                            <th>Bobot</th>
+                                            <th>Kode Kos</th>
+                                            <th>Nama Kos</th>
+                                            <th>Jarak Kos</th>
+                                            <th>Biaya</th>
+                                            <th>Fasilitas</th>
+                                            <th>Lokasi Pendukung</th>
+                                            <th>Keamanan</th>
+                                            <th>Ukuran Ruangan</th>
+                                            <th>Batas Jam Malam</th>
+                                            <th>Jenis Listrik</th>
+                                            <th>Kebersihan Kos</th>
+
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Kode</th>
-                                            <th>Nama</th>
-                                            <th>Jenis</th>
-                                            <th>Bobot</th>
+                                            <th>Kode Kos</th>
+                                            <th>Nama Kos</th>
+                                            <th>Jarak Kos</th>
+                                            <th>Biaya</th>
+                                            <th>Fasilitas</th>
+                                            <th>Lokasi Pendukung</th>
+                                            <th>Keamanan</th>
+                                            <th>Ukuran Ruangan</th>
+                                            <th>Batas Jam Malam</th>
+                                            <th>Jenis Listrik</th>
+                                            <th>Kebersihan Kos</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <td>C01</td>
-                                            <td>Biaya</td>
-                                            <td>Cost</td>
-                                            <td>0.3</td>
-                                            <td>
 
-                                             <a href="ubahkriteria.html" class="btn btn-success btn-sm"> Ubah </a>
-                                            <button class="btn btn-danger btn-sm">Hapus</button>
-                                            <a href="tambahsubkriteria.html" class="btn btn-info btn-sm">Tambah Subkriteria </a>
-                                            <a href="subkriteria.html" class="btn btn-info btn-sm"> Subkriteria </a>
-                                        </td>
                                         </tr>
-                                        <tr>
-                                            <td>C02</td>
-                                            <td>Fasilitas</td>
-                                            <td>Benefit</td>
-                                            <td>0.5</td>
-                                            <td><button class="btn btn-success btn-sm">Ubah</button>
-                                                <button class="btn btn-danger btn-sm">Hapus</button>
-                                                <button class="btn btn-info btn-sm">Subkriteria</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>C03</td>
-                                            <td>Lokasi</td>
-                                            <td>Benefit</td>
-                                            <td>0.2</td>
-                                            <td><button class="btn btn-success btn-sm">Ubah</button>
-                                                <button class="btn btn-danger btn-sm">Hapus</button>
-                                                <button class="btn btn-info btn-sm">Subkriteria</button>
-                                            </td>
-                                        </tr>
+
+
                                     </tbody>
                                 </table>
                             </div>
@@ -429,7 +415,7 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></
 
-
+i>
     </a>
 
     <!-- Tambah Kriteria Modal-->
