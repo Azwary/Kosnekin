@@ -45,9 +45,9 @@
 
                                         <a href="ubahkriteria.html" class="btn btn-success btn-sm"> Ubah </a>
                                         <button class="btn btn-danger btn-sm">Hapus</button>
-                                        <a href="tambahsubkriteria.html" class="btn btn-info btn-sm">Tambah Subkriteria
+                                        <a href="tambahsubkriteria" class="btn btn-info btn-sm">Tambah Subkriteria
                                         </a>
-                                        <a href="subkriteria.html" class="btn btn-info btn-sm"> Subkriteria </a>
+                                        <a href="subkriteria" class="btn btn-info btn-sm"> Subkriteria </a>
                                     </td>
                                 </tr>
                             </tbody>

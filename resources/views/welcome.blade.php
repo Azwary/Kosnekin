@@ -51,7 +51,7 @@
             </div>
         </div>
     </div> --}}
-    <div id="page-top">
+    {{-- <div id="page-top">
 
         <!-- Page Wrapper -->
         <div id="wrapper">
@@ -652,7 +652,7 @@
         <script src="js/demo/chart-area-demo.js"></script>
         <script src="js/demo/chart-pie-demo.js"></script>
 
-    </div>
+    </div> --}}
 </body>
 
 </html>
