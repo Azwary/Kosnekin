@@ -50,6 +50,14 @@ class Kriteria extends Component
         $this->ubah = false;
         $this->add = true;
     }
+
+    public function createsub()
+    {
+        $this->main = false;
+        $this->add = false;
+        $this->addsub = true;
+    }
+
     public function Edit($id)
     {
         $this->main = false;
@@ -75,11 +83,11 @@ class Kriteria extends Component
     {
         $this->validate();
 
-        // Get the last record to determine the last used ID
-        $lastKriteria = ModelsKriteria::orderBy('id', 'desc')->first();
+        // Generate new ID
+        $lastKriteria = ModelsKriteria::withTrashed()->max('id');
         if ($lastKriteria) {
             // Extract the numeric part of the last ID and increment it
-            $lastIdNumber = (int)substr($lastKriteria->id, 1);
+            $lastIdNumber = (int) substr($lastKriteria, 1);
             $newIdNumber = $lastIdNumber + 1;
         } else {
             // If no record exists, start with 01
