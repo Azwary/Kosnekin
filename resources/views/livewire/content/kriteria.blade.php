@@ -16,17 +16,18 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        {{-- <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"> --}}
+                        <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Kode</th>
+                                    <th>ID</th>
                                     <th>Nama Kriteria</th>
                                     <th>Jenis</th>
                                     <th>Bobot</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
-                            <tfoot>
+                            {{-- <tfoot>
                                 <tr>
                                     <th>Kode</th>
                                     <th>Nama</th>
@@ -34,23 +35,28 @@
                                     <th>Bobot</th>
                                     <th>Aksi</th>
                                 </tr>
-                            </tfoot>
+                            </tfoot> --}}
                             <tbody>
-                                <tr>
-                                    <td>C01</td>
-                                    <td>Biaya</td>
-                                    <td>Cost</td>
-                                    <td>0.3</td>
-                                    <td>
+                                @foreach ($kriteriaa as $item)
+                                    <tr>
+                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $item->nama_kriteria }}</td>
+                                        <td>{{ $item->jenis }}</td>
+                                        <td>{{ $item->bobot }}</td>
+                                        <td>
+                                            <button wire:click="Edit('{{ $item->id }}')"
+                                                class="btn btn-success btn-sm">Ubah</button>
+                                            <button wire:click="delete('{{ $item->id }}')"
+                                                class="btn btn-danger btn-sm">Hapus</button>
 
-                                        <a href="ubahkriteria.html" class="btn btn-success btn-sm"> Ubah </a>
-                                        <button class="btn btn-danger btn-sm">Hapus</button>
-                                        <a href="tambahsubkriteria.html" class="btn btn-info btn-sm">Tambah Subkriteria
-                                        </a>
-                                        <a href="subkriteria.html" class="btn btn-info btn-sm"> Subkriteria </a>
-                                    </td>
-                                </tr>
+                                            <a href="tambahsubkriteria.html" class="btn btn-info btn-sm">Tambah
+                                                Subkriteria</a>
+                                            <a href="subkriteria.html" class="btn btn-info btn-sm">Subkriteria</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
+
                         </table>
                     </div>
                 </div>
@@ -58,41 +64,55 @@
 
         </div>
     @endif
-    @if ($add)
-        <div class="container mt-5">
-            <div class="card">
-                <div class="card-header bg-primary text-white">
-                    Tambah Data Kriteria
-                </div>
-                <div class="card-body">
-                    <form id="addKriteriaForm">
-                        <div class="form-group">
-                            <label for="kodeKriteria">Kode</label>
-                            <input type="text" class="form-control" id="kodeKriteria" name="kodeKriteria" required>
+    @if ($add || $ubah)
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                {{ $ubah ? 'Ubah Data Kriteria' : 'Tambah Data Kriteria' }}
+            </div>
+            <div class="card-body">
+                <form wire:submit.prevent="store">
+                    <div class="form-group">
+                        <label for="namaKriteria">Nama Kriteria</label>
+                        <input type="text" class="form-control" id="namaKriteria" name="namaKriteria" wire:model="nama_kriteria" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="jenis">Jenis</label>
+                        <select class="form-control" id="jenis" name="jenis" wire:model="jenis" required>
+                            <option value="">Pilih Jenis</option>
+                            @foreach ($nama_jenis as $option)
+                                <option value="{{ $option->jenis }}">{{ $option->jenis }}</option>
+                            @endforeach
+                        </select>
+                        @error('jenis')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="bobotKriteria">Bobot</label>
+                        <input type="number" class="form-control" id="bobotKriteria" name="bobotKriteria" wire:model="bobot" step="0.01" required>
+                    </div>
+                </form>
+                    <div class="row">
+                        <div class="col">
+                            @if ($add)
+                                <button type="button" class="btn btn-block btn-primary" wire:click="store">Tambah</button>
+                            @endif
+                            @if ($ubah)
+                                <button type="button" class="btn btn-block btn-primary" wire:click="update">Simpan Perubahan</button>
+                            @endif
                         </div>
-                        <div class="form-group">
-                            <label for="namaKriteria">Nama Kriteria</label>
-                            <input type="text" class="form-control" id="namaKriteria" name="namaKriteria" required>
+                        <div class="col">
+                            <button type="button" class="btn btn-block btn-secondary" wire:click="cancel">Batal</button>
                         </div>
-                        <div class="form-group">
-                            <label for="jenisKriteria">Jenis</label>
-                            <select class="form-control" id="jenisKriteria" name="jenisKriteria" required>
-                                <option value="Benefit">Benefit</option>
-                                <option value="Cost">Cost</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="bobotKriteria">Bobot</label>
-                            <input type="number" class="form-control" id="bobotKriteria" name="bobotKriteria"
-                                step="0.01" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Tambah</button>
-                        <a href="kriteria.html" class="btn btn-secondary">Batal</a>
-                    </form>
-                </div>
+                    </div>
+
             </div>
         </div>
-    @endif
+    </div>
+@endif
+
+
     <!-- /.container-fluid -->
 
 </div>
