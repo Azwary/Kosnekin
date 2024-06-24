@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -11,14 +12,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kriteria', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->string('nama_kriteria');
+        Schema::create('jenis', function (Blueprint $table) {
+            $table->id();
             $table->string('jenis');
-            $table->decimal('bobot');
-            $table->softDeletes();
-            $table->timestamps();
         });
+
+        // Insert default values
+        DB::table('jenis')->insert([
+            ['jenis' => 'Benefit'],
+            ['jenis' => 'Cost'],
+        ]);
     }
 
     /**
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kriteria');
+        Schema::dropIfExists('jenis');
     }
 };
