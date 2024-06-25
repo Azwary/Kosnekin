@@ -23,6 +23,7 @@ class Kriteria extends Component
     public $ubah = false;
     public $mainsub = false;
     public $addsub = false;
+    public $editsub = false;
 
     public $kriteriaa, $kode_kriteria, $nama_kriteria,  $jenis, $bobot;
     public $nama_jenis;
@@ -74,6 +75,7 @@ class Kriteria extends Component
         $this->ubah = false;
         $this->mainsub = false;
         $this->addsub = false;
+        $this->editsub = false;
     }
 
     public function create()
@@ -83,7 +85,9 @@ class Kriteria extends Component
         $this->add = true;
         $this->mainsub = false;
         $this->addsub = false;
+        $this->editsub = false;
     }
+
 
     public function homesub($id)
     {
@@ -91,33 +95,13 @@ class Kriteria extends Component
         $this->add = false;
         $this->mainsub = true;
         $this->addsub = false;
+        $this->editsub = false;
 
         $kriteriaa = ModelsKriteria::findOrFail($id);
         $this->kode_kriteria = $kriteriaa->id;
         $this->bobot = $kriteriaa->bobot;
         $this->nama_kriteria = $kriteriaa->nama_kriteria;
         $this->jenis = $kriteriaa->jenis;
-        if ($this->kode_kriteria == 'C01') {
-            // $jarak = jarak::all();
-            // $this->nama_subkriteria = $jarak->nama;
-            // $this->bobot_subkriteria = $jarak->bobot;
-        } elseif ($this->kode_kriteria == 'C02') {
-
-        } elseif ($this->kode_kriteria == 'C03') {
-
-        } elseif ($this->kode_kriteria == 'C04') {
-
-        } elseif ($this->kode_kriteria == 'C05') {
-
-        } elseif ($this->kode_kriteria == 'C06') {
-
-        } elseif ($this->kode_kriteria == 'C07') {
-
-        } elseif ($this->kode_kriteria == 'C08') {
-
-        } elseif ($this->kode_kriteria == 'C09') {
-
-        }
 
     }
 
@@ -127,11 +111,70 @@ class Kriteria extends Component
         $this->add = false;
         $this->mainsub = false;
         $this->addsub = true;
+        $this->editsub = false;
 
         $kriteriaa = ModelsKriteria::findOrFail($kode_kriteria);
         $this->kode_kriteria = $kriteriaa->id;
 
 
+    }
+    public function ubahsub($id)
+    {
+        $this->main = false;
+        $this->ubah = false;
+        $this->add = false;
+        $this->mainsub = false;
+        $this->addsub = false;
+        $this->editsub = true;
+
+        $kriteriaa = ModelsKriteria::findOrFail($id);
+        $this->kode_kriteria = $kriteriaa->id;
+    }
+    public function storeEsub($id)
+    {
+
+        $kriteriaa = ModelsKriteria::findOrFail($id);
+        $this->kode_kriteria = $kriteriaa->id;
+
+        $validatedData = $this->validate([
+            'nama_subkriteria' => 'required|string|max:255',
+            'bobot_subkriteria' => 'required',
+        ]);
+        $data = [
+            'nama' => $this->nama_subkriteria,
+            'bobot' => $this->bobot_subkriteria,
+        ];
+        // $kriteriaa = ModelsKriteria::findOrFail($this->kode_kriteria);
+        // $kriteriaa->update($validatedData);
+
+        if ($this->kode_kriteria == 'C01') {
+            $Jarak_options = Jarak::findOrFail($this->kode_kriteria);
+            $Jarak_options->update($validatedData);
+        } elseif ($this->kode_kriteria == 'C02') {
+            $Biaya_options = Biaya::findOrFail($this->kode_kriteria);
+            $Biaya_options->update($validatedData);
+        } elseif ($this->kode_kriteria == 'C03') {
+            $fasilitas_options = fasilitas::findOrFail($this->kode_kriteria);
+            $fasilitas_options->update($validatedData);
+        } elseif ($this->kode_kriteria == 'C04') {
+            $lokasi_pendukung_options = lokasi_pendukung::findOrFail($this->kode_kriteria);
+            $kriteriaa->lokasi_pendukung_options($validatedData);
+        } elseif ($this->kode_kriteria == 'C05') {
+            $keamanan_options = keamanan::findOrFail($this->kode_kriteria);
+            $keamanan_options->update($validatedData);
+        } elseif ($this->kode_kriteria == 'C06') {
+            $ukuran_ruangan_options = ukuran_ruangan::findOrFail($this->kode_kriteria);
+            $kriteriaa->ukuran_ruangan_options($validatedData);
+        } elseif ($this->kode_kriteria == 'C07') {
+            $batas_jam_malam_options = batas_jam_malam::findOrFail($this->kode_kriteria);
+            $kriteriaa->batas_jam_malam_options($validatedData);
+        } elseif ($this->kode_kriteria == 'C08') {
+            $jenis_listrik_options = jenis_listrik::findOrFail($this->kode_kriteria);
+            $kriteriaa->jenis_listrik_options($validatedData);
+        } elseif ($this->kode_kriteria == 'C09') {
+            $kebersihan_kos_options = kebersihan_kos::findOrFail($this->kode_kriteria);
+            $kriteriaa->kebersihan_kos_options($validatedData);
+        }
     }
     public function storesub($kode_kriteria)
     {
