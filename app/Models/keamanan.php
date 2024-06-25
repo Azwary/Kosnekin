@@ -13,5 +13,6 @@ class keamanan extends Model
     protected $fillable = [
         'id',
         'nama',
+        'bobot'
     ];
 }

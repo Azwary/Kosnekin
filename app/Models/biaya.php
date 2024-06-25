@@ -13,5 +13,6 @@ class biaya extends Model
     protected $fillable = [
         'id',
         'nama',
+        'bobot'
     ];
 }

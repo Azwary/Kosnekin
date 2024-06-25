@@ -15,14 +15,16 @@ return new class extends Migration
         Schema::create('jenis_listrik', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->string('bobot');
+            $table->timestamps();
         });
 
         // Insert default values
-        DB::table('jenis_listrik')->insert([
-            ['nama' => 'Pascabayar/bulanan'],
-            ['nama' => 'Token/listrik isi ulang'],
+        // DB::table('jenis_listrik')->insert([
+        //     ['nama' => 'Pascabayar/bulanan'],
+        //     ['nama' => 'Token/listrik isi ulang'],
 
-        ]);
+        // ]);
     }
 
     /**

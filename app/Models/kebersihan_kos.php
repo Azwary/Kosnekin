@@ -13,5 +13,6 @@ class kebersihan_kos extends Model
     protected $fillable = [
         'id',
         'nama',
+        'bobot'
     ];
 }

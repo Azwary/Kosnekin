@@ -15,18 +15,20 @@ return new class extends Migration
         Schema::create('ukuran_ruangan', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->string('bobot');
+            $table->timestamps();
         });
 
         // Insert default values
-        DB::table('ukuran_ruangan')->insert([
-            ['nama' => '3X3m'],
-            ['nama' => '3X4m'],
-            ['nama' => '3X5m'],
-            ['nama' => '4X5m'],
-            ['nama' => '5X5m'],
-            ['nama' => '5X6m'],
+        // DB::table('ukuran_ruangan')->insert([
+        //     ['nama' => '3X3m'],
+        //     ['nama' => '3X4m'],
+        //     ['nama' => '3X5m'],
+        //     ['nama' => '4X5m'],
+        //     ['nama' => '5X5m'],
+        //     ['nama' => '5X6m'],
 
-        ]);
+        // ]);
     }
 
     /**

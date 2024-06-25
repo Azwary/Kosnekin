@@ -13,5 +13,6 @@ class jenis extends Model
     protected $fillable = [
         'id',
         'jenis',
+        'bobot'
     ];
 }

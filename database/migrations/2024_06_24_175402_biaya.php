@@ -15,15 +15,17 @@ return new class extends Migration
         Schema::create('biaya', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->string('bobot');
+            $table->timestamps();
         });
 
         // Insert default values
-        DB::table('biaya')->insert([
-            ['nama' => '<=Rp.700.000-Rp.900.000'],
-            ['nama' => '>Rp.900.000-Rp.1.300.000'],
-            ['nama' => '>Rp.1.300.000-Rp.1.600.000'],
-            ['nama' => '>Rp.1.600.000-Rp.2.000.000'],
-        ]);
+        // DB::table('biaya')->insert([
+        //     ['nama' => '<=Rp.700.000-Rp.900.000'],
+        //     ['nama' => '>Rp.900.000-Rp.1.300.000'],
+        //     ['nama' => '>Rp.1.300.000-Rp.1.600.000'],
+        //     ['nama' => '>Rp.1.600.000-Rp.2.000.000'],
+        // ]);
     }
 
     /**

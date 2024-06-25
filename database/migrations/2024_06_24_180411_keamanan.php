@@ -15,14 +15,16 @@ return new class extends Migration
         Schema::create('keamanan', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->string('bobot');
+            $table->timestamps();
         });
 
         // Insert default values
-        DB::table('keamanan')->insert([
-            ['nama' => 'tidak ada keamanan'],
-            ['nama' => 'satpam/penjaga'],
-            ['nama' => 'CCTV & satpam/penjaga'],
-        ]);
+        // DB::table('keamanan')->insert([
+        //     ['nama' => 'tidak ada keamanan'],
+        //     ['nama' => 'satpam/penjaga'],
+        //     ['nama' => 'CCTV & satpam/penjaga'],
+        // ]);
     }
 
     /**

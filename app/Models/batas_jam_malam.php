@@ -13,5 +13,6 @@ class batas_jam_malam extends Model
     protected $fillable = [
         'id',
         'nama',
+        'bobot'
     ];
 }

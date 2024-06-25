@@ -15,14 +15,16 @@ return new class extends Migration
         Schema::create('lokasi_pendukung', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->string('bobot');
+            $table->timestamps();
         });
 
         // Insert default values
-        DB::table('lokasi_pendukung')->insert([
-            ['nama' => 'dekat dengan tempat makan'],
-            ['nama' => 'dekat dengan tempat makan, tempat ibadah & tempat hiburan'],
-            ['nama' => 'dekat dengan tempat makan, warung, tempat ibadah & tempat hiburan'],
-        ]);
+        // DB::table('lokasi_pendukung')->insert([
+        //     ['nama' => 'dekat dengan tempat makan'],
+        //     ['nama' => 'dekat dengan tempat makan, tempat ibadah & tempat hiburan'],
+        //     ['nama' => 'dekat dengan tempat makan, warung, tempat ibadah & tempat hiburan'],
+        // ]);
     }
 
     /**
