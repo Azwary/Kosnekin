@@ -6,6 +6,7 @@ use App\Livewire\Content\Subkriteria;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
+Route::view('pencarian', 'kos');
 Route::get('kriteria',Kriteria::class)->name('kriteria');
 Route::get('datakos', Datakos::class)->name('datakos');
 Route::get('subkriteria', Subkriteria::class)->name('subkriteria');

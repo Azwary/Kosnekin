@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Kosnekin</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -22,6 +22,7 @@
 
     <!-- Custom styles for this template-->
     <link href="sb-admin-2.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 </head>
 
 <body class="antialiased font-sans">
@@ -64,7 +65,7 @@
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-laugh-wink"></i>
                     </div>
-                    <div class="sidebar-brand-text mx-3">KOSNEKIN<sup>2</sup></div>
+                    <div class="sidebar-brand-text mx-3">Kosnekin</div>
                 </a>
 
                 <!-- Divider -->
@@ -72,88 +73,17 @@
 
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" href="/">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Dashboard</span></a>
                 </li>
 
-                <!-- Divider -->
-                <hr class="sidebar-divider">
-
-                <!-- Heading -->
-                <div class="sidebar-heading">
-                    Interface
-                </div>
-
-                <!-- Nav Item - Pages Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse"
-                        data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span>Components</span>
-                    </a>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                        data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Custom Components:</h6>
-                            <a class="collapse-item" href="buttons.html">Buttons</a>
-                            <a class="collapse-item" href="cards.html">Cards</a>
-                        </div>
-                    </div>
-                </li>
-
-                <!-- Nav Item - Utilities Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse"
-                        data-target="#collapseUtilities" aria-expanded="true"
-                        aria-controls="collapseUtilities">
-                        <i class="fas fa-fw fa-wrench"></i>
-                        <span>Utilities</span>
-                    </a>
-                    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                        data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Custom Utilities:</h6>
-                            <a class="collapse-item" href="utilities-color.html">Colors</a>
-                            <a class="collapse-item" href="utilities-border.html">Borders</a>
-                            <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                            <a class="collapse-item" href="utilities-other.html">Other</a>
-                        </div>
-                    </div>
-                </li>
-
-                <!-- Divider -->
-                <hr class="sidebar-divider">
-
-                <!-- Heading -->
-                <div class="sidebar-heading">
-
-                </div>
-
-
                 <!-- Nav Item - Tables -->
                 <li class="nav-item">
-                    <a class="nav-link" href="kriteria.html">
+                    <a class="nav-link" href="pencarian">
                         <i class="fas fa-fw fa-table"></i>
-                        <span>Kriteria</span></a>
+                        <span>Pencarian kos</span></a>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="datakos.html">
-                        <i class="fas fa-fw fa-folder"></i>
-                        <span>Data Kos</span></a>
-                </li>
-
-
-
-                <!-- Nav Item - Charts -->
-                <li class="nav-item">
-                    <a class="nav-link" href="penilaian.html">
-                        <i class="fas fa-fw fa-chart-area"></i>
-                        <span>Penilaian</span></a>
-                </li>
-
-
 
                 <!-- Divider -->
                 <hr class="sidebar-divider d-none d-md-block">
@@ -183,16 +113,6 @@
                         <!-- Topbar Search -->
                         <form
                             class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                            <div class="input-group">
-                                <input type="text" class="form-control bg-light border-0 small"
-                                    placeholder="Search for..." aria-label="Search"
-                                    aria-describedby="basic-addon2">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button">
-                                        <i class="fas fa-search fa-sm"></i>
-                                    </button>
-                                </div>
-                            </div>
                         </form>
 
                         <!-- Topbar Navbar -->
@@ -234,9 +154,6 @@
                         <!-- Page Heading -->
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
                             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                            <a href="#"
-                                class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                    class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                         </div>
 
                         <!-- Content Row -->
@@ -250,8 +167,8 @@
                                             <div class="col mr-2">
                                                 <div
                                                     class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                    Earnings (Monthly)</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000
+                                                    Kos yang tersedia</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">5
                                                 </div>
                                             </div>
                                             <div class="col-auto">
@@ -270,9 +187,9 @@
                                             <div class="col mr-2">
                                                 <div
                                                     class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                    Earnings (Annual)</div>
+                                                    Start harga (bulan)</div>
                                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                                    $215,000</div>
+                                                    Rp.700.000</div>
                                             </div>
                                             <div class="col-auto">
                                                 <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -324,8 +241,8 @@
                                             <div class="col mr-2">
                                                 <div
                                                     class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                    Pending Requests</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800">18
+                                                    Costumer</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">80
                                                 </div>
                                             </div>
                                             <div class="col-auto">
@@ -347,30 +264,14 @@
                                     <!-- Card Header - Dropdown -->
                                     <div
                                         class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                        <h6 class="m-0 font-weight-bold text-primary">Earnings Overview
+                                        <h6 class="m-0 font-weight-bold text-primary">Perkenalan
                                         </h6>
-                                        <div class="dropdown no-arrow">
-                                            <a class="dropdown-toggle" href="#" role="button"
-                                                id="dropdownMenuLink" data-toggle="dropdown"
-                                                aria-haspopup="true" aria-expanded="false">
-                                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                                aria-labelledby="dropdownMenuLink">
-                                                <div class="dropdown-header">Dropdown Header:</div>
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item" href="#">Something else
-                                                    here</a>
-                                            </div>
-                                        </div>
                                     </div>
                                     <!-- Card Body -->
                                     <div class="card-body">
-                                        <div class="chart-area">
-                                            <canvas id="myAreaChart"></canvas>
-                                        </div>
+                                        <p>Selamat datang di Kosnekin, website yang menyediakan tempat hunian yang nyaman dan modern di kota Anda! Kami bangga menawarkan tempat tinggal yang memenuhi kebutuhan Anda akan kenyamanan, keamanan, dan fasilitas yang lengkap. Kosnekin adalah pilihan terbaik bagi mahasiswa, karyawan, dan siapa pun yang mencari tempat tinggal strategis dengan suasana yang menyenangkan. <br> 
+                                        Kosnekin bukan hanya tempat tinggal, tetapi juga komunitas yang ramah dan hangat. Kami saling mengenal dan berbagi pengalaman. Ini adalah tempat yang ideal untuk membangun relasi baru dan mendapatkan teman-teman baru.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -548,11 +449,6 @@
                                         <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
                                     </div>
                                     <div class="card-body">
-                                        <div class="text-center">
-                                            <img class="img-fluid px-3 px-sm-4 mt-3 mb-4"
-                                                style="width: 25rem;" src="img/undraw_posting_photo.svg"
-                                                alt="...">
-                                        </div>
                                         <p>Add some quality, svg illustrations to your project courtesy of
                                             <a target="_blank" rel="nofollow"
                                                 href="https://undraw.co/">unDraw</a>, a
@@ -596,7 +492,7 @@
                 <footer class="sticky-footer bg-white">
                     <div class="container my-auto">
                         <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; Your Website 2021</span>
+                            <span>Copyright &copy; Kosnekin 2024</span>
                         </div>
                     </div>
                 </footer>
