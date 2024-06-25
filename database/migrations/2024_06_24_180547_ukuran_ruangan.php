@@ -20,15 +20,13 @@ return new class extends Migration
         });
 
         // Insert default values
-        // DB::table('ukuran_ruangan')->insert([
-        //     ['nama' => '3X3m'],
-        //     ['nama' => '3X4m'],
-        //     ['nama' => '3X5m'],
-        //     ['nama' => '4X5m'],
-        //     ['nama' => '5X5m'],
-        //     ['nama' => '5X6m'],
+        DB::table('ukuran_ruangan')->insert([
+            ['nama' => '3X3m','bobot'=>'1'],
+            ['nama' => '3X4m','bobot'=>'2'],
+            ['nama' => '4X5m','bobot'=>'3'],
+            ['nama' => '5X6m','bobot'=>'4'],
 
-        // ]);
+        ]);
     }
 
     /**

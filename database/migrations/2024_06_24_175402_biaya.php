@@ -20,12 +20,12 @@ return new class extends Migration
         });
 
         // Insert default values
-        // DB::table('biaya')->insert([
-        //     ['nama' => '<=Rp.700.000-Rp.900.000'],
-        //     ['nama' => '>Rp.900.000-Rp.1.300.000'],
-        //     ['nama' => '>Rp.1.300.000-Rp.1.600.000'],
-        //     ['nama' => '>Rp.1.600.000-Rp.2.000.000'],
-        // ]);
+        DB::table('biaya')->insert([
+            ['nama' => '<=Rp.700.000-Rp.900.000', 'bobot'=>'1'],
+            ['nama' => '>Rp.900.000-Rp.1.300.000', 'bobot'=>'2'],
+            ['nama' => '>Rp.1.300.000-Rp.1.600.000', 'bobot'=>'3'],
+            ['nama' => '>Rp.1.600.000-Rp.2.000.000', 'bobot'=>'4'],
+        ]);
     }
 
     /**

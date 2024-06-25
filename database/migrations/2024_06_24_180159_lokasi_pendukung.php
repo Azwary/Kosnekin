@@ -20,11 +20,12 @@ return new class extends Migration
         });
 
         // Insert default values
-        // DB::table('lokasi_pendukung')->insert([
-        //     ['nama' => 'dekat dengan tempat makan'],
-        //     ['nama' => 'dekat dengan tempat makan, tempat ibadah & tempat hiburan'],
-        //     ['nama' => 'dekat dengan tempat makan, warung, tempat ibadah & tempat hiburan'],
-        // ]);
+        DB::table('lokasi_pendukung')->insert([
+            ['nama' => 'dekat dengan tempat hiburan','bobot'=>'1'],
+            ['nama' => 'dekat dengan tempat makan & tempat hiburan','bobot'=>'2'],
+            ['nama' => 'dekat dengan tempat makan, tempat ibadah & tempat hiburan','bobot'=>'3'],
+            ['nama' => 'dekat dengan tempat makan, warung, tempat ibadah & tempat hiburan','bobot'=>'4'],
+        ]);
     }
 
     /**

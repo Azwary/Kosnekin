@@ -20,11 +20,12 @@ return new class extends Migration
         });
 
         // Insert default values
-        // DB::table('keamanan')->insert([
-        //     ['nama' => 'tidak ada keamanan'],
-        //     ['nama' => 'satpam/penjaga'],
-        //     ['nama' => 'CCTV & satpam/penjaga'],
-        // ]);
+        DB::table('keamanan')->insert([
+            ['nama' => 'tidak ada keamanan','bobot'=>'1'],
+            ['nama' => 'satpam/penjaga','bobot'=>'2'],
+            ['nama' => 'CCTV','bobot'=>'3'],
+            ['nama' => 'CCTV & satpam/penjaga','bobot'=>'4'],
+        ]);
     }
 
     /**
