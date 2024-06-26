@@ -133,26 +133,43 @@
                 <!-- Card Body -->
                 <div class="card-body">
                     <div class="row">
-                        <div class="col">
-                            <img src="{{asset('img/lan.jpg')}}" alt="Lan" class="card-img">
-                            <p>Ahmad Erlan Saputra</p>
+
+                        <div class="col flex flex-col items-center">
+                            <img src="{{asset('img/erlan.jpeg')}}" alt="Lan" class="rounded-full w-64 h-64 object-cover">
+                            <p class="mt-4">Erlan</p>
                         </div>
-                        <div class="col">
-                            <img src="{{asset('img/lan.jpg')}}" alt="Lan" class="card-img">
-                            <p>bayu</p>
+
+                        <div class="col flex flex-col items-center">
+                            <img src="{{asset('img/anika.jpeg')}}" alt="Lan" class="rounded-full w-64 h-64 object-cover">
+                            <p class="mt-4">Anika</p>
                         </div>
-                        <div class="col">
-                            <img src="{{asset('img/lan.jpg')}}" alt="Lan" class="card-img">
-                            <p>ucup</p>
+
+
+
+                        <div class="col flex flex-col items-center">
+                            <img src="{{asset('img/yusuf.jpeg')}}" alt="Lan" class="rounded-full w-64 h-64 object-cover">
+                            <p class="mt-4">Yusuf</p>
                         </div>
-                        <div class="col">
-                            <img src="{{asset('img/lan.jpg')}}" alt="Lan" class="card-img">
-                            <p>vindi</p>
+
+                        <div class="col flex flex-col items-center">
+                            <img src="{{asset('img/vindi.jpeg')}}" alt="Lan" class="rounded-full w-64 h-64 object-cover">
+                            <p class="mt-4">Vindi</p>
                         </div>
-                        <div class="col">
-                            <img src="{{asset('img/lan.jpg')}}" alt="Lan" class="card-img">
-                            <p>anika</p>
+
+
+
+
+                        <div class="col flex flex-col items-center">
+                            <img src="{{asset('img/bayu.png')}}" alt="Lan" class="rounded-full w-64 h-64 object-cover">
+                            <p class="mt-4">Bayu</p>
                         </div>
+
+
+
+
+
+
+
                     </div>
                 </div>
             </div>
