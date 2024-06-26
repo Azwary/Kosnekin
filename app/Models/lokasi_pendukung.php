@@ -13,5 +13,6 @@ class lokasi_pendukung extends Model
     protected $fillable = [
         'id',
         'nama',
+        'bobot'
     ];
 }

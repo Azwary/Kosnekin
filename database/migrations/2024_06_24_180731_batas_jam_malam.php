@@ -15,15 +15,16 @@ return new class extends Migration
         Schema::create('batas_jam_malam', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->string('bobot');
+            $table->timestamps();
         });
 
         // Insert default values
         DB::table('batas_jam_malam')->insert([
-            ['nama' => '21:00-22.00'],
-            ['nama' => '22:00-23.00'],
-            ['nama' => '23:00-00.00'],
-            ['nama' => '00:00-01.00'],
-            ['nama' => '24jam'],
+            ['nama' => '21:00-22.00','bobot'=>'1'],
+            ['nama' => '23:00-24.00','bobot'=>'2'],
+            ['nama' => '01:00-02.00','bobot'=>'3'],
+            ['nama' => '24jam','bobot'=>'4'],
 
         ]);
     }

@@ -13,5 +13,6 @@ class ukuran_ruangan extends Model
     protected $fillable = [
         'id',
         'nama',
+        'bobot'
     ];
 }

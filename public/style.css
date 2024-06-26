@@ -1,0 +1,4 @@
+.card-img-top {
+    object-fit: cover; /* Mengisi area dengan gambar, memotong bagian yang tidak pas */
+    height: 200px; /* Menentukan tinggi gambar sesuai keinginan */
+}

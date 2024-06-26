@@ -15,13 +15,16 @@ return new class extends Migration
         Schema::create('keamanan', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->string('bobot');
+            $table->timestamps();
         });
 
         // Insert default values
         DB::table('keamanan')->insert([
-            ['nama' => 'tidak ada keamanan'],
-            ['nama' => 'satpam/penjaga'],
-            ['nama' => 'CCTV & satpam/penjaga'],
+            ['nama' => 'tidak ada keamanan','bobot'=>'1'],
+            ['nama' => 'satpam/penjaga','bobot'=>'2'],
+            ['nama' => 'CCTV','bobot'=>'3'],
+            ['nama' => 'CCTV & satpam/penjaga','bobot'=>'4'],
         ]);
     }
 

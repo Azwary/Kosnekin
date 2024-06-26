@@ -15,15 +15,16 @@ return new class extends Migration
         Schema::create('jarak', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->string('bobot');
+            $table->timestamps();
         });
 
         // Insert default values
         DB::table('jarak')->insert([
-            ['nama' => '50m'],
-            ['nama' => '>50m-250m'],
-            ['nama' => '>250m-1Km'],
-            ['nama' => '>250Km-1Km'],
-            ['nama' => '>1km-2,5Km'],
+            ['nama' => '50 meter', 'bobot'=>'1'],
+            ['nama' => '>50 - 250 meter', 'bobot'=>'2'],
+            ['nama' => '>250 meter - 1 km', 'bobot'=>'3'],
+            ['nama' => '>1 - 2,5 km', 'bobot'=>'4'],
         ]);
     }
 

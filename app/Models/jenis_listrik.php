@@ -13,5 +13,6 @@ class jenis_listrik extends Model
     protected $fillable = [
         'id',
         'nama',
+        'bobot'
     ];
 }

@@ -49,9 +49,7 @@
                                             <button wire:click="delete('{{ $item->id }}')"
                                                 class="btn btn-danger btn-sm">Hapus</button>
 
-                                            <a wire:click="createsub" class="btn btn-info btn-sm">Tambah Subkriteria
-                                            </a>
-                                            <a href="subkriteria" class="btn btn-info btn-sm"> Subkriteria </a>
+                                            <a wire:click="homesub('{{ $item->id }}')" class="btn btn-info btn-sm"> Subkriteria </a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -116,34 +114,208 @@
             </div>
         </div>
     @endif
-    @if ($addsub)
-    <div class="container mt-5">
-        <div class="card">
-            <div class="card-header bg-primary text-white">
-                Tambah Data Subkriteria
-            </div>
+    @if ($mainsub)
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+            <!-- Page Heading -->
+            <h1 class="h3 mb-2 text-gray-800">Sub Kriteria</h1>
+            <style>
+                .margin-bottom-20 {
+                    margin-bottom: 20px;
+                }
+            </style>
             <div class="card-body">
-                <form id="addKriteriaForm">
-                    <div class="form-group">
-                        <label for="no">No</label>
-                        <input type="number" class="form-control" id="no" name="no" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="namaSubkriteria">Nama Subkriteria</label>
-                        <input type="text" class="form-control" id="namaKriteria" name="namaKriteria" required>
-                    </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <td>Nama Kriteria</td>
+                                <td>{{ $nama_kriteria }}</td>
+                            </tr>
+                            <tr>
+                                <td>Bobot</td>
+                                <td>{{ $bobot }}</td>
+                            </tr>
+                            <tr>
+                                <td>Tipe</td>
+                                <td>{{ $jenis }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-                    <div class="form-group">
-                        <label for="bobot">Bobot</label>
-                        <input type="number" class="form-control" id="bobot" name="bobot" step="1" required>
+            <div class="container text-center">
+                <a wire:click="cancel" class="btn btn-warning btn-sm"> Kembali </a>
+                <a wire:click="createsub('{{ $kode_kriteria }}')" class="btn btn-info btn-sm">Tambah Subkriteria</a>
+            </div>
+            <br>
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Data
+                        Tabel Sub Kriteria</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama Subkriteria</th>
+                                    <th>Bobot</th>
+                                    {{-- <th>Aksi</th> --}}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if ($kode_kriteria == 'C01')
+                                @foreach ($jarak_kos_options as $item)
+                                <tr>
+                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $item->nama }}</td>
+                                    <td>{{ $item->bobot }}</td>
+                                    <td>
+                                        {{-- <a wire:click="ubahsub('{{ $item->id }}')" class="btn btn-success btn-sm"> Ubah </a>
+                                        <button class="btn btn-danger btn-sm">Hapus</button> --}}
+                                    </td>
+                                </tr>
+                                @endforeach
+                                @elseif ($kode_kriteria == 'C02')
+                                @foreach ($biaya_options as $item)
+                                <tr>
+                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $item->nama }}</td>
+                                    <td>{{ $item->bobot }}</td>
+                                    <td>
+                                        {{-- <a wire:click="ubahsub('{{ $item->id }}')" class="btn btn-success btn-sm"> Ubah </a>
+                                        <button class="btn btn-danger btn-sm">Hapus</button> --}}
+                                    </td>
+                                </tr>
+                                @endforeach
+                                @elseif ($kode_kriteria == 'C03')
+                                @foreach ($fasilitas_options as $item)
+                                <tr>
+                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $item->nama }}</td>
+                                    <td>{{ $item->bobot }}</td>
+                                    <td>
+                                        {{-- <a wire:click="ubahsub('{{ $item->id }}')" class="btn btn-success btn-sm"> Ubah </a>
+                                        <button class="btn btn-danger btn-sm">Hapus</button> --}}
+                                    </td>
+                                </tr>
+                                @endforeach
+                                @elseif ($kode_kriteria == 'C04')
+                                @foreach ($lokasi_pendukung_options as $item)
+                                <tr>
+                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $item->nama }}</td>
+                                    <td>{{ $item->bobot }}</td>
+                                    <td>
+                                        {{-- <a wire:click="ubahsub('{{ $item->id }}')" class="btn btn-success btn-sm"> Ubah </a>
+                                        <button class="btn btn-danger btn-sm">Hapus</button> --}}
+                                    </td>
+                                </tr>
+                                @endforeach
+                                @elseif ($kode_kriteria == 'C05')
+                                @foreach ($keamanan_options as $item)
+                                <tr>
+                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $item->nama }}</td>
+                                    <td>{{ $item->bobot }}</td>
+                                    <td>
+                                        {{-- <a wire:click="ubahsub('{{ $item->id }}')" class="btn btn-success btn-sm"> Ubah </a>
+                                        <button class="btn btn-danger btn-sm">Hapus</button> --}}
+                                    </td>
+                                </tr>
+                                @endforeach
+                                @elseif ($kode_kriteria == 'C06')
+                                @foreach ($ukuran_ruangan_options as $item)
+                                <tr>
+                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $item->nama }}</td>
+                                    <td>{{ $item->bobot }}</td>
+                                    <td>
+                                        {{-- <a wire:click="ubahsub('{{ $item->id }}')" class="btn btn-success btn-sm"> Ubah </a>
+                                        <button class="btn btn-danger btn-sm">Hapus</button> --}}
+                                    </td>
+                                </tr>
+                                @endforeach
+                                @elseif ($kode_kriteria == 'C07')
+                                @foreach ($batas_jam_malam_options as $item)
+                                <tr>
+                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $item->nama }}</td>
+                                    <td>{{ $item->bobot }}</td>
+                                    <td>
+                                        {{-- <a wire:click="ubahsub('{{ $item->id }}')" class="btn btn-success btn-sm"> Ubah </a>
+                                        <button class="btn btn-danger btn-sm">Hapus</button> --}}
+                                    </td>
+                                </tr>
+                                @endforeach
+                                @elseif ($kode_kriteria == 'C08')
+                                @foreach ($jenis_listrik_options as $item)
+                                <tr>
+                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $item->nama }}</td>
+                                    <td>{{ $item->bobot }}</td>
+                                    <td>
+                                        {{-- <a wire:click="ubahsub('{{ $item->id }}')" class="btn btn-success btn-sm"> Ubah </a>
+                                        <button class="btn btn-danger btn-sm">Hapus</button> --}}
+                                    </td>
+                                </tr>
+                                @endforeach
+                                @elseif ($kode_kriteria == 'C09')
+                                @foreach ($kebersihan_kos_options as $item)
+                                <tr>
+                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $item->nama }}</td>
+                                    <td>{{ $item->bobot }}</td>
+                                    <td>
+                                        {{-- <a wire:click="ubahsub('{{ $item->id }}')" class="btn btn-success btn-sm"> Ubah </a>
+                                        <button class="btn btn-danger btn-sm">Hapus</button> --}}
+                                    </td>
+                                </tr>
+                                @endforeach
+                                @endif
+                            </tbody>
+                        </table>
                     </div>
-                    <button type="submit" class="btn btn-primary">Tambah</button>
-                    <a href="kriteria" class="btn btn-secondary">Batal</a>
-                </form>
+                </div>
+            </div>
+
+        </div>
+    @endif
+
+    @if ($addsub ||$editsub)
+        <div class="container mt-5">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    Tambah Data Subkriteria
+                </div>
+                <div class="card-body">
+                    {{-- <form id="addKriteriaForm"> --}}
+                    <form wire:submit.prevent="storesub('{{ $kode_kriteria }}')">
+                        <div class="form-group">
+                            <label for="nama_subkriteria">Nama Subkriteria</label>
+                            <input type="text" class="form-control" id="nama_subkriteria" wire:model="nama_subkriteria" name="nama_subkriteria"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bobot_subkriteria">Bobot</label>
+                            <input type="decimal" class="form-control" id="bobot_subkriteria" wire:model="bobot_subkriteria" name="bobot_subkriteria"
+                                step="5" required>
+                        </div>
+                        <button type="button" class="btn  btn-primary"
+                                    wire:click="storesub('{{ $kode_kriteria }}')">Tambah</button>
+                        {{-- <button type="submit" class="btn btn-primary">Tambah</button> --}}
+                        <a wire:click="homesub('{{ $kode_kriteria }}')" class="btn btn-secondary">Batal</a>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
     @endif
+
 
 
     <!-- /.container-fluid -->

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class jarak extends Model
 {
@@ -13,5 +14,6 @@ class jarak extends Model
     protected $fillable = [
         'id',
         'nama',
+        'bobot'
     ];
 }
