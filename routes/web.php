@@ -2,6 +2,7 @@
 
 use App\Livewire\Content\Kriteria;
 use App\Livewire\Content\Datakos;
+use App\Livewire\Content\Penilaian;
 use App\Livewire\Content\Subkriteria;
 use App\Livewire\Dashboard\Home;
 use App\Livewire\Dashboard\Pencarian;
@@ -13,7 +14,7 @@ Route::get('/',Home::class)->name('home');
 Route::get('pencarian',Pencarian::class)->name('pencarian');
 Route::get('kriteria',Kriteria::class)->name('kriteria');
 Route::get('datakos', Datakos::class)->name('datakos');
-Route::get('subkriteria', Subkriteria::class)->name('subkriteria');
+Route::get('penilaian', Penilaian::class)->name('penilaian');
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
