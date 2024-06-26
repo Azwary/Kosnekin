@@ -269,7 +269,7 @@
                                     </div>
                                     <!-- Card Body -->
                                     <div class="card-body">
-                                        <p>Selamat datang di Kosnekin, website yang menyediakan tempat hunian yang nyaman dan modern di kota Anda! Kami bangga menawarkan tempat tinggal yang memenuhi kebutuhan Anda akan kenyamanan, keamanan, dan fasilitas yang lengkap. Kosnekin adalah pilihan terbaik bagi mahasiswa, karyawan, dan siapa pun yang mencari tempat tinggal strategis dengan suasana yang menyenangkan. <br> 
+                                        <p>Selamat datang di Kosnekin, website yang menyediakan tempat hunian yang nyaman dan modern di kota Anda! Kami bangga menawarkan tempat tinggal yang memenuhi kebutuhan Anda akan kenyamanan, keamanan, dan fasilitas yang lengkap. Kosnekin adalah pilihan terbaik bagi mahasiswa, karyawan, dan siapa pun yang mencari tempat tinggal strategis dengan suasana yang menyenangkan. <br>
                                         Kosnekin bukan hanya tempat tinggal, tetapi juga komunitas yang ramah dan hangat. Kami saling mengenal dan berbagi pengalaman. Ini adalah tempat yang ideal untuk membangun relasi baru dan mendapatkan teman-teman baru.
                                         </p>
                                     </div>

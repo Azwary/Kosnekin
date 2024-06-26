@@ -104,4 +104,11 @@ class Datakos extends Component
 
         return redirect()->to('datakos');
     }
+    public function delete($id)
+    {
+        $kriteriaa = ModelsDatakos::findOrFail($id);
+        $kriteriaa->delete()    ;
+        session()->flash('message', 'kriteria deleted successfully.');
+        return redirect()->to('/kriteria');
+    }
 }

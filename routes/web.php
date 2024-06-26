@@ -3,10 +3,12 @@
 use App\Livewire\Content\Kriteria;
 use App\Livewire\Content\Datakos;
 use App\Livewire\Content\Subkriteria;
+use App\Livewire\Dashboard\Home;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'welcome');
-Route::view('pencarian', 'kos');
+Route::view('ex', 'welcome');
+// Route::view('pencarian', 'kos');
+Route::get('/',Home::class)->name('home');
 Route::get('kriteria',Kriteria::class)->name('kriteria');
 Route::get('datakos', Datakos::class)->name('datakos');
 Route::get('subkriteria', Subkriteria::class)->name('subkriteria');

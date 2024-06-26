@@ -73,10 +73,6 @@
                                         class="btn btn-success btn-sm">Ubah</button>
                                     <button wire:click="delete('{{ $item->id }}')"
                                         class="btn btn-danger btn-sm">Hapus</button>
-
-                                    <a wire:click="createsub" class="btn btn-info btn-sm">Tambah Subkriteria
-                                    </a>
-                                    <a href="subkriteria" class="btn btn-info btn-sm"> Subkriteria </a>
                                 </td>
                             </tr>
                         @endforeach
