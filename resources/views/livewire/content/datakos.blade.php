@@ -87,7 +87,7 @@
 </div>
 @endif
 
-@if ($add)
+@if ($add || $ubah)
 <div class="container mt-5">
     <div class="card">
         <div class="card-header bg-primary text-white">
@@ -194,7 +194,7 @@
                     <button type="submit" class="btn btn-block btn-primary">Tambah</button>
                 @endif
                 @if ($ubah)
-                    <button type="button" class="btn btn-block btn-primary" wire:click="update">Simpan Perubahan</button>
+                    <button type="button" class="btn btn-block btn-primary" wire:click="update()">Simpan Perubahan</button>
                 @endif
             </form>
         </div>

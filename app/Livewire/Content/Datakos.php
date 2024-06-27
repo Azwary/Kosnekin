@@ -20,7 +20,7 @@ class Datakos extends Component
     public $main = true;
     public $add = false;
     public $ubah = false;
-    public $Datakos;
+    public $Datakos, $kodekos;
     public $nama_kos, $alamat, $jarak_kos, $biaya, $fasilitas, $lokasi_pendukung, $keamanan, $ukuran_ruangan, $batas_jam_malam, $jenis_listrik, $kebersihan_kos;
     public $jarak_kos_options, $biaya_options, $fasilitas_options, $lokasi_pendukung_options, $keamanan_options, $ukuran_ruangan_options, $batas_jam_malam_options, $jenis_listrik_options, $kebersihan_kos_options;
 
@@ -81,6 +81,49 @@ class Datakos extends Component
         $this->add = true;
     }
 
+    public function Edit($id)
+    {
+        $this->main = false;
+        $this->ubah = true;
+        $datakos = ModelsDatakos::findOrFail($id);
+        $this->kodekos = $datakos->id;
+        $this->nama_kos = $datakos->nama_kos;
+        $this->alamat = $datakos->alamat;
+        $this->jarak_kos = $datakos->jarak_kos;
+        $this->biaya = $datakos->biaya;
+        $this->fasilitas = $datakos->fasilitas;
+        $this->lokasi_pendukung = $datakos->lokasi_pendukung;
+        $this->keamanan = $datakos->keamanan;
+        $this->ukuran_ruangan = $datakos->ukuran_ruangan;
+        $this->batas_jam_malam = $datakos->batas_jam_malam;
+        $this->jenis_listrik = $datakos->jenis_listrik;
+        $this->kebersihan_kos = $datakos->kebersihan_kos;
+    }
+    public function update()
+    {
+        $validatedData = $this->validate([
+            'nama_kos' => 'required|string|max:255',
+            'alamat' => 'required|string|max:255',
+            'jarak_kos' => 'required|string',
+            'biaya' => 'required|string',
+            'fasilitas' => 'required|string',
+            'lokasi_pendukung' => 'required|string',
+            'keamanan' => 'required|string',
+            'ukuran_ruangan' => 'required|string',
+            'batas_jam_malam' => 'required|string',
+            'jenis_listrik' => 'required|string',
+            'kebersihan_kos' => 'required|string',
+        ]);
+
+        $datakos = ModelsDatakos::findOrFail($this->kodekos);
+        $datakos->update($validatedData);
+
+        session()->flash('message', 'kriteria updated successfully.');
+
+        // $this->resetInputFields();
+        return redirect()->to('/datakos');
+    }
+
     public function store()
     {
         $this->validate();
@@ -107,8 +150,8 @@ class Datakos extends Component
     public function delete($id)
     {
         $kriteriaa = ModelsDatakos::findOrFail($id);
-        $kriteriaa->delete()    ;
+        $kriteriaa->delete();
         session()->flash('message', 'kriteria deleted successfully.');
-        return redirect()->to('/kriteria');
+        return redirect()->to('/datakos');
     }
 }
