@@ -10,17 +10,22 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('ex', 'welcome');
 // Route::view('pencarian', 'kos');
-Route::get('/',Home::class)->name('home');
-Route::get('pencarian',Pencarian::class)->name('pencarian');
-Route::get('kriteria',Kriteria::class)->name('kriteria');
-Route::get('datakos', Datakos::class)->name('datakos');
-Route::get('penilaian', Penilaian::class)->name('penilaian');
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+Route::get('/', Home::class)->name('home');
+Route::get('pencarian', Pencarian::class)->name('pencarian');
 
-Route::view('profile', 'profile')
-    ->middleware(['auth'])
-    ->name('profile');
 
-require __DIR__.'/auth.php';
+Route::middleware(['auth'])->group(function () {
+    Route::view('dashboard', 'dashboard')
+        ->middleware('verified')
+        ->name('dashboard');
+
+    Route::view('profile', 'profile')
+        ->name('profile');
+
+    Route::get('kriteria', Kriteria::class)->name('kriteria');
+    Route::get('datakos', Datakos::class)->name('datakos');
+    Route::get('penilaian', Penilaian::class)->name('penilaian');
+});
+
+
+require __DIR__ . '/auth.php';

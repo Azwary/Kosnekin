@@ -128,7 +128,22 @@ class Datakos extends Component
     {
         $this->validate();
 
-        ModelsDatakos::create([
+        // Generate new ID
+        $lastKriteria = ModelsDatakos::withTrashed()->max('id');
+        if ($lastKriteria) {
+            // Extract the numeric part of the last ID and increment it
+            $lastIdNumber = (int) substr($lastKriteria, 1);
+            $newIdNumber = $lastIdNumber + 1;
+        } else {
+            // If no record exists, start with 01
+            $newIdNumber = 1;
+        }
+
+        // Format the new ID to have a two-digit number
+        $newId = 'A' . str_pad($newIdNumber, 2, '0', STR_PAD_LEFT);
+
+        $data = [
+            'id' => $newId,
             'nama_kos' => $this->nama_kos,
             'alamat' => $this->alamat,
             'jarak_kos' => $this->jarak_kos,
@@ -141,7 +156,12 @@ class Datakos extends Component
             'jenis_listrik' => $this->jenis_listrik,
             'kebersihan_kos' => $this->kebersihan_kos,
             'application_sent' => now(),
-        ]);
+        ];
+
+        // Use dd() to dump and die to see if the data is correct
+        // dd($data);
+
+        ModelsDatakos::create($data);
 
         session()->flash('message', 'User created successfully.');
 

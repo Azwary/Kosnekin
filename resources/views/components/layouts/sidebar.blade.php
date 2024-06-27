@@ -161,7 +161,7 @@
 
                 <!-- Nav Item - Charts -->
                 <li class="nav-item">
-                    <a class="nav-link" ">
+                    <a class="nav-link" href="{{ route('penilaian') }}" >
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Penilaian</span></a>
             </li>
