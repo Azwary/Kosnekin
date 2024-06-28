@@ -4,57 +4,72 @@ namespace App\Livewire\Content;
 
 use App\Models\datakos;
 use App\Models\kriteria;
-use App\Models\penilaian as ModelsPenilaian;
 use Livewire\Component;
 
 class Penilaian extends Component
 {
     public $main = true;
-    public $add = false;
-    public $penilaian, $datakos, $kriteria;
-    public $kodekos;
+    public $datakos;
 
     public function mount()
     {
-        // Fetch data and eager load relationships
-        $this->datakos = Datakos::with([
+        $this->datakos = datakos::with([
             'jarak',
-            'biaya',
-            'fasilitas',
+            'biayaa',
+            'fasilitass',
             'lokasiPendukung',
-            'keamanan',
+            'keamanann',
             'ukuranRuangan',
             'batasJamMalam',
             'jenisListrik',
             'kebersihanKos'
         ])->get();
-
-        // Fetch kriteria and existing penilaian
-        $this->kriteria = Kriteria::all();
-        $this->penilaian = ModelsPenilaian::all();
     }
 
     public function render()
     {
-        // Pass data to the Livewire view
         return view('livewire.content.penilaian', [
             'datakos' => $this->datakos,
-            'kriteria' => $this->kriteria,
-            'penilaian' => $this->penilaian,
         ]);
     }
 
-    public function home()
+    public function calculateTotal($datakos)
     {
-        // Switch between main and add views
-        $this->main = true;
-        $this->add = false;
+        $total = 0;
+        $total += $this->calculateNormalizedValue($datakos->biayaa);
+        $total += $this->calculateNormalizedValue($datakos->fasilitass);
+        $total += $this->calculateNormalizedValue($datakos->lokasiPendukung);
+        $total += $this->calculateNormalizedValue($datakos->keamanann);
+        $total += $this->calculateNormalizedValue($datakos->ukuranRuangan);
+        $total += $this->calculateNormalizedValue($datakos->batasJamMalam);
+        $total += $this->calculateNormalizedValue($datakos->jenisListrik);
+        $total += $this->calculateNormalizedValue($datakos->kebersihanKos);
+
+        return $total;
     }
 
-    public function create()
+    private function calculateNormalizedValue($relation)
     {
-        // Switch between main and add views
-        $this->main = false;
-        $this->add = true;
+        $kriteria = kriteria::all();
+
+        foreach ($kriteria as $kriteria) {
+            if ($kriteria->jenis == 'Cost') {
+                $minNilai = penilaian::where('kode_kos', $newId)->min('nilai');
+                $calculatedNilai = $minNilai / $nilai; // Assuming $nilai is defined somewhere
+            } elseif ($kriteria->jenis == 'Benefit') {
+                $maxNilai = penilaian::where('kode_kos', $newId)->max('nilai');
+                $calculatedNilai = $nilai / $maxNilai; // Assuming $nilai is defined somewhere
+            }
+            // Perform further operations with $calculatedNilai here
+        }
+
+
+        if ($relation && isset($relation->bobot)) {
+            // Ensure bobot is at least 1 to avoid division by zero
+            $bobot = max(1, $relation->bobot);
+            return 1 / $bobot; // Divide 1 by bobot to normalize
+        } else {
+            return 0; // Default to 0 if bobot is not set or relation doesn't exist
+        }
     }
 }

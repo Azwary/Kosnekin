@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('penilaian', function (Blueprint $table) {
             $table->id();
+            $table->string('nilai');
             $table->timestamps();
         });
     }

@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Content;
 
+use Livewire\WithFileUploads;
 use App\Models\batas_jam_malam;
 use App\Models\biaya;
 use App\Models\datakos as ModelsDatakos;
@@ -11,18 +12,25 @@ use App\Models\jenis_listrik;
 use App\Models\keamanan;
 use App\Models\kebersihan_kos;
 use App\Models\lokasi_pendukung;
+use App\Models\penilaian;
 use App\Models\ukuran_ruangan;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
 class Datakos extends Component
 {
+    use WithFileUploads;
+
     public $main = true;
     public $add = false;
     public $ubah = false;
+    public $image;
+    public $datakos;
+    // public $nilai = [];
     public $Datakos, $kodekos;
     public $nama_kos, $alamat, $jarak_kos, $biaya, $fasilitas, $lokasi_pendukung, $keamanan, $ukuran_ruangan, $batas_jam_malam, $jenis_listrik, $kebersihan_kos;
     public $jarak_kos_options, $biaya_options, $fasilitas_options, $lokasi_pendukung_options, $keamanan_options, $ukuran_ruangan_options, $batas_jam_malam_options, $jenis_listrik_options, $kebersihan_kos_options;
+
 
     protected $rules = [
         'nama_kos' => 'required|string|max:255',
@@ -36,6 +44,9 @@ class Datakos extends Component
         'batas_jam_malam' => 'required|string',
         'jenis_listrik' => 'required|string',
         'kebersihan_kos' => 'required|string',
+        // 'image' => 'required|image|max:10240',
+        'image' => 'image|max:10240',
+
     ];
 
     public function mount()
@@ -50,6 +61,17 @@ class Datakos extends Component
         $this->batas_jam_malam_options = batas_jam_malam::all();
         $this->jenis_listrik_options = jenis_listrik::all();
         $this->kebersihan_kos_options = kebersihan_kos::all();
+        $this->datakos = ModelsDatakos::with([
+            'jarak',
+            'biayaa',
+            'fasilitass',
+            'lokasiPendukung',
+            'keamanann',
+            'ukuranRuangan',
+            'batasJamMalam',
+            'jenisListrik',
+            'kebersihanKos'
+        ])->get();
     }
 
     public function render()
@@ -88,6 +110,7 @@ class Datakos extends Component
         $datakos = ModelsDatakos::findOrFail($id);
         $this->kodekos = $datakos->id;
         $this->nama_kos = $datakos->nama_kos;
+        $this->image = $datakos->image;
         $this->alamat = $datakos->alamat;
         $this->jarak_kos = $datakos->jarak_kos;
         $this->biaya = $datakos->biaya;
@@ -113,6 +136,7 @@ class Datakos extends Component
             'batas_jam_malam' => 'required|string',
             'jenis_listrik' => 'required|string',
             'kebersihan_kos' => 'required|string',
+            'nilai' => 'required|array',
         ]);
 
         $datakos = ModelsDatakos::findOrFail($this->kodekos);
@@ -142,9 +166,14 @@ class Datakos extends Component
         // Format the new ID to have a two-digit number
         $newId = 'A' . str_pad($newIdNumber, 2, '0', STR_PAD_LEFT);
 
+        // Generate the file name based on the 'nama_kos'
+        $fileName = $this->nama_kos . '.' . $this->image->getClientOriginalExtension();
+        $path = $this->image->storeAs('public', $fileName);
+
         $data = [
             'id' => $newId,
             'nama_kos' => $this->nama_kos,
+            'image' => $path,
             'alamat' => $this->alamat,
             'jarak_kos' => $this->jarak_kos,
             'biaya' => $this->biaya,
@@ -155,18 +184,39 @@ class Datakos extends Component
             'batas_jam_malam' => $this->batas_jam_malam,
             'jenis_listrik' => $this->jenis_listrik,
             'kebersihan_kos' => $this->kebersihan_kos,
-            'application_sent' => now(),
         ];
 
-        // Use dd() to dump and die to see if the data is correct
-        // dd($data);
-
+        // Create the datakos entry
         ModelsDatakos::create($data);
 
-        session()->flash('message', 'User created successfully.');
+        // Calculate and store penilaian
+        // foreach ($this->nilai as $kriteriaId => $nilai) {
+        //     $kriteria = kriteria::find($kriteriaId);
+
+        //     if ($kriteria) {
+        //         if ($kriteria->jenis == 'Cost') {
+        //             $minNilai = penilaian::where('kode_kos', $newId)->min('nilai');
+        //             $calculatedNilai = $minNilai / $nilai;
+        //         } elseif ($kriteria->jenis == 'Benefit') {
+        //             $maxNilai = penilaian::where('kode_kos', $newId)->max('nilai');
+        //             $calculatedNilai = $nilai / $maxNilai;
+        //         }
+
+        //         // Store the calculated nilai
+        //         penilaian::create([
+        //             'kode_kos' => $newId,
+        //             'nilai' => $calculatedNilai
+        //         ]);
+        //     }
+        // }
+
+        session()->flash('message', 'Data successfully created.');
 
         return redirect()->to('datakos');
     }
+
+
+
     public function delete($id)
     {
         $kriteriaa = ModelsDatakos::findOrFail($id);
