@@ -40,7 +40,7 @@ class Penilaian extends Component
         return view('livewire.content.penilaian', [
             'datakos' => $this->datakos,
             'kriteria' => $this->kriteria,
-            'penilaian' => $this->penilaian,
+            'penilaian' => $this->penilaian
         ]);
     }
 

@@ -31,6 +31,7 @@ class datakos extends Model
         'jenis_listrik',
         'kebersihan_kos'
     ];
+
     public function jarak()
     {
         return $this->belongsTo(Jarak::class);
@@ -38,41 +39,41 @@ class datakos extends Model
 
     public function biaya()
     {
-        return $this->belongsTo(Biaya::class, 'biaya');
+        return $this->belongsTo(Biaya::class);
     }
 
     public function fasilitas()
     {
-        return $this->belongsTo(Fasilitas::class, 'fasilitas');
+        return $this->belongsTo(Fasilitas::class);
     }
 
     public function lokasiPendukung()
     {
-        return $this->belongsTo(lokasi_pendukung::class, 'lokasi_pendukung');
+        return $this->belongsTo(lokasi_pendukung::class);
     }
 
     public function keamanan()
     {
-        return $this->belongsTo(Keamanan::class, 'keamanan');
+        return $this->belongsTo(Keamanan::class);
     }
 
     public function ukuranRuangan()
     {
-        return $this->belongsTo(ukuran_ruangan::class, 'ukuran_ruangan');
+        return $this->belongsTo(ukuran_ruangan::class);
     }
 
     public function batasJamMalam()
     {
-        return $this->belongsTo(batas_jam_malam::class, 'batas_jam_malam');
+        return $this->belongsTo(batas_jam_malam::class);
     }
 
     public function jenisListrik()
     {
-        return $this->belongsTo(jenis_listrik::class, 'jenis_listrik');
+        return $this->belongsTo(jenis_listrik::class);
     }
 
     public function kebersihanKos()
     {
-        return $this->belongsTo(kebersihan_kos::class, 'kebersihan_kos');
+        return $this->belongsTo(kebersihan_kos::class);
     }
 }

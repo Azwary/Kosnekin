@@ -13,5 +13,6 @@ class fasilitas extends Model
     protected $fillable = [
         'id',
         'nama',
+        'bobot'
     ];
 }

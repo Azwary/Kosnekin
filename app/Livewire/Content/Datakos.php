@@ -40,7 +40,7 @@ class Datakos extends Component
 
     public function mount()
     {
-        $this->Datakos = ModelsDatakos::all();
+        $this->Datakos = ModelsDatakos::with('biaya')->get();
         $this->jarak_kos_options = jarak::all();
         $this->biaya_options = biaya::all();
         $this->lokasi_pendukung_options = lokasi_pendukung::all();
@@ -50,6 +50,8 @@ class Datakos extends Component
         $this->batas_jam_malam_options = batas_jam_malam::all();
         $this->jenis_listrik_options = jenis_listrik::all();
         $this->kebersihan_kos_options = kebersihan_kos::all();
+
+        
     }
 
     public function render()
@@ -64,7 +66,7 @@ class Datakos extends Component
             'fasilitas_options' => $this->fasilitas_options,
             'batas_jam_malam_options' => $this->batas_jam_malam_options,
             'jenis_listrik_options' => $this->jenis_listrik_options,
-            'kebersihan_kos_options' => $this->kebersihan_kos_options,
+            'kebersihan_kos_options' => $this->kebersihan_kos_options
         ]);
     }
 
@@ -112,7 +114,7 @@ class Datakos extends Component
             'ukuran_ruangan' => 'required|string',
             'batas_jam_malam' => 'required|string',
             'jenis_listrik' => 'required|string',
-            'kebersihan_kos' => 'required|string',
+            'kebersihan_kos' => 'required|string'
         ]);
 
         $datakos = ModelsDatakos::findOrFail($this->kodekos);

@@ -1,4 +1,5 @@
 <div>
+
     @if ($main)
     <div id="page-top">
 
@@ -15,15 +16,11 @@
 
                         <!-- Page Heading -->
                         <h1 class="h3 mb-2 text-gray-800">Penilaian</h1>
-                        <a href="tambahkriteria.html" id="addKriteriaButton" class="btn btn-primary mb-3">Tambah
-                            Penilaian</a>
-
 
                         <!-- DataTales Example -->
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Data
-                                    Tabel Normalisasi</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Data Tabel Normalisasi</h6>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -48,15 +45,15 @@
                                             <tr>
                                                 <td>{{ $datakoss->id }}</td>
                                                 {{-- <td>{{ $datakoss->jarak_kos->bobot }}</td> --}}
-                                                <td>{{ $datakoss->jarak_kos ? $datakoss->jarak->bobot ?? 'N/A' : 'N/A' }}</td>
-                                                <td>{{ $datakoss->biaya ? $datakoss->biaya->bobot ?? 'N/A' : 'N/A' }}</td>
-                                                <td>{{ $datakoss->fasilitas ? $datakoss->fasilitas->bobot ?? 'N/A' : 'N/A' }}</td>
-                                                <td>{{ $datakoss->lokasiPendukung ? $datakoss->lokasiPendukung->bobot ?? 'N/A' : 'N/A' }}</td>
-                                                <td>{{ $datakoss->keamanan ? $datakoss->keamanan->bobot ?? 'N/A' : 'N/A' }}</td>
-                                                <td>{{ $datakoss->ukuranRuangan ? $datakoss->ukuranRuangan->bobot ?? 'N/A' : 'N/A' }}</td>
-                                                <td>{{ $datakoss->batasJamMalam ? $datakoss->batasJamMalam->bobot ?? 'N/A' : 'N/A' }}</td>
-                                                <td>{{ $datakoss->jenisListrik ? $datakoss->jenisListrik->bobot ?? 'N/A' : 'N/A' }}</td>
-                                                <td>{{ $datakoss->kebersihanKos ? $datakoss->kebersihanKos->bobot ?? 'N/A' : 'N/A' }}</td>
+                                                <td>{{ $datakoss->jarak_kos ?? 'N/A' }}</td>
+                                                <td>{{ $datakoss->biaya ?? 'N/A' }}</td>
+                                                <td>{{ $datakoss->fasilitas->bobot ?? 'N/A' }}</td>
+                                                <td>{{ $datakoss->lokasiPendukung->bobot ?? 'N/A' }}</td>
+                                                <td>{{ $datakoss->keamanan->bobot ?? 'N/A' }}</td>
+                                                <td>{{ $datakoss->ukuran_ruangan->bobot ?? 'N/A' }}</td>
+                                                <td>{{ $datakoss->batas_jam_malam->bobot ?? 'N/A' }}</td>
+                                                <td>{{ $datakoss->jenis_listrik->bobot ?? 'N/A' }}</td>
+                                                <td>{{ $datakoss->kebersihan_kos->bobot ?? 'N/A' }}</td>
                                                 <td>
                                                     <a href="ubahpenilaian.html" class="btn btn-success btn-sm">Ubah</a>
                                                     <button class="btn btn-danger btn-sm">Hapus</button>
@@ -65,18 +62,14 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-
-
                                 </div>
                             </div>
                         </div>
 
-
                         <!-- DataTales Example -->
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Data
-                                    Tabel Penilaian/Perangkingan</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Data Tabel Penilaian/Perangkingan</h6>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -91,36 +84,20 @@
                                         </thead>
 
                                         <tbody>
+                                            @foreach ($datakos as $datakoss)
                                             <tr>
-                                                <td>A1</td>
-                                                <td>Runi Kos</td>
-                                                <td>85</td>
+                                                <td>{{ $datakoss->id }}</td>
+                                                {{-- <td>{{ $datakoss->jarak_kos->bobot }}</td> --}}
+                                                <td>{{ $datakoss->nama_kos ?? 'N/A' }}</td>
+                                                <td>{{ $datakoss->jarak_kos->bobot ?? 'N/A' }}</td>
                                                 <td>
-
-                                                    <a href="ubahpenilaian.html" class="btn btn-success btn-sm"> Ubah
-                                                    </a>
-                                                    <button class="btn btn-danger btn-sm">Hapus</button>
-
+                                                    <button
+                                                        class="btn btn-success btn-sm">Ubah</button>
+                                                    <button
+                                                        class="btn btn-danger btn-sm">Hapus</button>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>C02</td>
-                                                <td>Fasilitas</td>
-                                                <td>Benefit</td>
-                                                <td><button class="btn btn-success btn-sm">Ubah</button>
-                                                    <button class="btn btn-danger btn-sm">Hapus</button>
-
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>C03</td>
-                                                <td>Lokasi</td>
-                                                <td>Benefit</td>
-                                                <td><button class="btn btn-success btn-sm">Ubah</button>
-                                                    <button class="btn btn-danger btn-sm">Hapus</button>
-
-                                                </td>
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
