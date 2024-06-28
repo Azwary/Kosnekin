@@ -47,7 +47,7 @@
                                             @foreach ($datakos as $datakoss)
                                             <tr>
                                                 <td>{{ $datakoss->id }}</td>
-                                                <td>{{ $datakoss->jarak_kos->bobot }}</td>
+                                                {{-- <td>{{ $datakoss->jarak_kos->bobot }}</td> --}}
                                                 <td>{{ $datakoss->jarak_kos ? $datakoss->jarak->bobot ?? 'N/A' : 'N/A' }}</td>
                                                 <td>{{ $datakoss->biaya ? $datakoss->biaya->bobot ?? 'N/A' : 'N/A' }}</td>
                                                 <td>{{ $datakoss->fasilitas ? $datakoss->fasilitas->bobot ?? 'N/A' : 'N/A' }}</td>
