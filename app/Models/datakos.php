@@ -11,12 +11,10 @@ class datakos extends Model
 {
     use HasFactory, Notifiable, SoftDeletes;
 
-    // Tentukan nama tabel yang digunakan oleh model ini
     protected $table = 'kos';
     protected $keyType = 'string';
-    protected $softDelete = true;
     public $incrementing = false;
-    // Tentukan kolom yang dapat diisi secara massal
+
     protected $fillable = [
         'id',
         'nama_kos',
@@ -32,19 +30,20 @@ class datakos extends Model
         'jenis_listrik',
         'kebersihan_kos'
     ];
+
     public function jarak()
     {
-        return $this->belongsTo(Jarak::class);
+        return $this->belongsTo(jarak::class, 'jarak_kos');
     }
 
-    public function biaya()
+    public function biayaa()
     {
-        return $this->belongsTo(Biaya::class, 'biaya');
+        return $this->belongsTo(biaya::class, 'biaya');
     }
 
-    public function fasilitas()
+    public function fasilitass()
     {
-        return $this->belongsTo(Fasilitas::class, 'fasilitas');
+        return $this->belongsTo(fasilitas::class, 'fasilitas');
     }
 
     public function lokasiPendukung()
@@ -52,9 +51,9 @@ class datakos extends Model
         return $this->belongsTo(lokasi_pendukung::class, 'lokasi_pendukung');
     }
 
-    public function keamanan()
+    public function keamanann()
     {
-        return $this->belongsTo(Keamanan::class, 'keamanan');
+        return $this->belongsTo(keamanan::class, 'keamanan');
     }
 
     public function ukuranRuangan()

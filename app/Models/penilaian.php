@@ -15,16 +15,17 @@ class penilaian extends Model
     // Tentukan kolom yang dapat diisi secara massal
     protected $fillable = [
         'id',
-        'nama_kos',
-        'alamat',
-        'jarak_kos',
-        'biaya',
-        'lokasi_pendukung',
-        'keamanan',
-        'ukuran_ruangan',
-        'fasilitas',
-        'batas_jam_malam',
-        'jenis_listrik',
-        'kebersihan_kos'
+        'nilai'
+        // 'nama_kos',
+        // 'alamat',
+        // 'jarak_kos',
+        // 'biaya',
+        // 'lokasi_pendukung',
+        // 'keamanan',
+        // 'ukuran_ruangan',
+        // 'fasilitas',
+        // 'batas_jam_malam',
+        // 'jenis_listrik',
+        // 'kebersihan_kos'
     ];
 }

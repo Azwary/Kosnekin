@@ -128,7 +128,7 @@
                     <select class="form-control" id="jarak_kos" wire:model="jarak_kos" required>
                         <option value="">Pilih Jenis</option>
                         @foreach ($jarak_kos_options as $option)
-                            <option value="{{ $option->nama }}">{{ $option->nama }}</option>
+                            <option value="{{ $option->id }}">{{ $option->nama }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -137,7 +137,7 @@
                     <select class="form-control" id="biaya" wire:model="biaya" required>
                         <option value="">Pilih biaya</option>
                         @foreach ($biaya_options as $option)
-                            <option value="{{ $option->nama }}">{{ $option->nama }}</option>
+                            <option value="{{ $option->id }}">{{ $option->nama }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -146,7 +146,7 @@
                     <select class="form-control" id="fasilitas" wire:model="fasilitas" required>
                         <option value="">Pilih fasilitas</option>
                         @foreach ($fasilitas_options as $option)
-                            <option value="{{ $option->nama }}">{{ $option->nama }}</option>
+                            <option value="{{ $option->id }}">{{ $option->nama }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -155,7 +155,7 @@
                     <select class="form-control" id="lokasi_pendukung" wire:model="lokasi_pendukung" required>
                         <option value="">Pilih lokasi pendukung</option>
                         @foreach ($lokasi_pendukung_options as $option)
-                            <option value="{{ $option->nama }}">{{ $option->nama }}</option>
+                            <option value="{{ $option->id }}">{{ $option->nama }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -164,7 +164,7 @@
                     <select class="form-control" id="keamanan" wire:model="keamanan" required>
                         <option value="">Pilih keamanan</option>
                         @foreach ($keamanan_options as $option)
-                            <option value="{{ $option->nama }}">{{ $option->nama }}</option>
+                            <option value="{{ $option->id }}">{{ $option->nama }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -173,7 +173,7 @@
                     <select class="form-control" id="ukuran_ruangan" wire:model="ukuran_ruangan" required>
                         <option value="">Pilih ukuran ruangan</option>
                         @foreach ($ukuran_ruangan_options as $option)
-                            <option value="{{ $option->nama }}">{{ $option->nama }}</option>
+                            <option value="{{ $option->id }}">{{ $option->nama }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -182,7 +182,7 @@
                     <select class="form-control" id="batas_jam_malam" wire:model="batas_jam_malam" required>
                         <option value="">Pilih batas jam malam</option>
                         @foreach ($batas_jam_malam_options as $option)
-                            <option value="{{ $option->nama }}">{{ $option->nama }}</option>
+                            <option value="{{ $option->id }}">{{ $option->nama }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -191,7 +191,7 @@
                     <select class="form-control" id="jenis_listrik" wire:model="jenis_listrik" required>
                         <option value="">Pilih jenis Listrik</option>
                         @foreach ($jenis_listrik_options as $option)
-                            <option value="{{ $option->nama }}">{{ $option->nama }}</option>
+                            <option value="{{ $option->id }}">{{ $option->nama }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -200,7 +200,7 @@
                     <select class="form-control" id="kebersihan_kos" wire:model="kebersihan_kos" required>
                         <option value="">Pilih kebersihan kos</option>
                         @foreach ($kebersihan_kos_options as $option)
-                            <option value="{{ $option->nama }}">{{ $option->nama }}</option>
+                            <option value="{{ $option->id }}">{{ $option->nama }}</option>
                         @endforeach
                     </select>
                 </div>
