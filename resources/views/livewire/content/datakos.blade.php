@@ -105,14 +105,20 @@
                     <label for="nama_kos">Nama Kos</label>
                     <input type="text" class="form-control" id="nama_kos" wire:model="nama_kos" required>
                 </div>
+                <div class="form-group">
+                    <label for="foto">Foto</label>
+                    {{-- <input type="file" class="form-control" id="foto" name="image" wire:model="image" required> --}}
+                    <input type="file" wire:model="image">
+                    @error('image') <span class="error">{{ $message }}</span> @enderror
+                </div>
                 {{-- <div class="form-group">
                     <label for="image">Foto kos</label>
-                    <input type="file" class="form-control" id="image" wire:model="image" required>
+                    <input type="text" class="form-control" id="image" name="image" wire:model="image" required>
                 </div> --}}
-                <div class="form-group mb-4">
+                {{-- <div class="form-group mb-4">
                     <label for="image" class="block text-lg font-semibold text-gray-700 mb-2">Foto kos</label>
                     <input type="file" class="form-control block w-full text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition duration-200 ease-in-out" id="image" wire:model="image" required>
-                </div>
+                </div> --}}
                 <div class="form-group">
                     <label for="alamat">Alamat</label>
                     <input type="text" class="form-control" id="alamat" wire:model="alamat" required>

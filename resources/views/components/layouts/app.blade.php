@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>{{ $title ?? 'Page Title' }}</title>
+    @livewireStyles
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
@@ -51,6 +52,7 @@
         <!-- End of Content Wrapper -->
 
     </div>
+    @livewireScripts
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->

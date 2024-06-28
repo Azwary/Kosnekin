@@ -40,7 +40,8 @@ class Datakos extends Component
         'batas_jam_malam' => 'required|string',
         'jenis_listrik' => 'required|string',
         'kebersihan_kos' => 'required|string',
-        'image' => 'required|file|max:10240', // Max 10MB
+        // 'image' => 'required|image|max:10240',
+        'image' => 'image|max:2048',
 
     ];
 
@@ -94,6 +95,7 @@ class Datakos extends Component
         $datakos = ModelsDatakos::findOrFail($id);
         $this->kodekos = $datakos->id;
         $this->nama_kos = $datakos->nama_kos;
+        $this->image = $datakos->image;
         $this->alamat = $datakos->alamat;
         $this->jarak_kos = $datakos->jarak_kos;
         $this->biaya = $datakos->biaya;
@@ -148,14 +150,18 @@ class Datakos extends Component
         // Format the new ID to have a two-digit number
         $newId = 'A' . str_pad($newIdNumber, 2, '0', STR_PAD_LEFT);
 
+        // $fileName = Str::slug($this->nama_kos) . '_' . time() . '.' . $this->image->getClientOriginalExtension();
+        // $path = $this->image->storeAs('public', $fileName);
+
         // Generate the file name based on the 'nama_kos'
-        $fileName = $this->nama_kos . '_' . time() . '.' . $this->image->getClientOriginalExtension();
-        $path = $this->image->storeAs('public/images', $fileName);
+        // $fileName = $this->nama_kos . '.' . $this->image->getClientOriginalExtension();
+        // $fileName = $this->image;
+        // $path = $this->image->storeAs('public', $fileName);
 
         $data = [
             'id' => $newId,
             'nama_kos' => $this->nama_kos,
-            'image' => 'storage/images/' . $fileName,
+            'image' =>   $this->image,
             'alamat' => $this->alamat,
             'jarak_kos' => $this->jarak_kos,
             'biaya' => $this->biaya,
@@ -166,9 +172,8 @@ class Datakos extends Component
             'batas_jam_malam' => $this->batas_jam_malam,
             'jenis_listrik' => $this->jenis_listrik,
             'kebersihan_kos' => $this->kebersihan_kos,
-            'application_sent' => now(),
         ];
-
+        dd($data);
         ModelsDatakos::create($data);
 
         session()->flash('message', 'Data successfully created.');
