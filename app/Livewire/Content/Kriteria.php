@@ -151,7 +151,7 @@ class Kriteria extends Component
             $Jarak_options = Jarak::findOrFail($this->kode_kriteria);
             $Jarak_options->update($validatedData);
         } elseif ($this->kode_kriteria == 'C02') {
-            $Biaya_options = Biaya::findOrFail($this->kode_kriteria);
+            $Biaya_options = biaya::findOrFail($this->kode_kriteria);
             $Biaya_options->update($validatedData);
         } elseif ($this->kode_kriteria == 'C03') {
             $fasilitas_options = fasilitas::findOrFail($this->kode_kriteria);

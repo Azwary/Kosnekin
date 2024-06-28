@@ -42,26 +42,27 @@
                                     </thead>
 
                                     <tbody>
-                                        <tr>
-                                            <td>A1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
+                                       @foreach ($Datakos as $item)
+                                       <tr>
+                                        <td>{{$item->id}}</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>
 
-                                            <td>
+                                         <a href="ubahpenilaian.html" class="btn btn-success btn-sm"> Ubah  </a>
+                                        <button class="btn btn-danger btn-sm">Hapus</button>
 
-                                             <a href="ubahpenilaian.html" class="btn btn-success btn-sm"> Ubah  </a>
-                                            <button class="btn btn-danger btn-sm">Hapus</button>
+                                    </td>
+                                    </tr>
 
-                                        </td>
-                                        </tr>
-
+                                       @endforeach
                                     </tbody>
                                 </table>
                             </div>
