@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 
 class jarak extends Model
 {
-    use HasFactory;
+    // use HasFactory;
     protected $table = 'jarak';
 
     protected $fillable = [
