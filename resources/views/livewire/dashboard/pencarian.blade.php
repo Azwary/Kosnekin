@@ -18,13 +18,13 @@
                         <h5 class="card-title text-xl font-bold mb-2 text-blue-800">{{ $item->nama_kos }}</h5>
                         <p class="card-text mb-2"><b>Alamat:</b> <br>{{ $item->alamat }}</p>
                         {{-- <p class="card-text mb-2"><b>Biaya (bulan):</b> Rp {{ number_format((int)$item->biaya, 0, ',', '.') }}</p> --}}
-                        <p class="card-text mb-2"><b>Biaya (bulan):</b> <br> Rp {{ $item->biaya }}</p>
-                        <p class="card-text mb-2"><b>Keamanan:</b> <br> {{ $item->keamanan }}</p>
-                        <p class="card-text mb-2"><b>Ukuran ruangan:</b> <br> {{ $item->ukuran_ruangan }}</p>
-                        <p class="card-text mb-2"><b>Fasilitas:</b> <br> {{ $item->fasilitas }}</p>
-                        <p class="card-text mb-2"><b>Batas jam malam:</b> <br> {{ $item->batas_jam_malam }}</p>
-                        <p class="card-text mb-2"><b>Jenis listrik:</b> <br> {{ $item->jenis_listrik }}</p>
-                        <p class="card-text"><b>Kebersihan:</b> <br> {{ $item->kebersihan_kos }}</p>
+                        <p class="card-text mb-2"><b>Biaya (bulan):</b> <br> Rp{{ $item->biaya ? $item->biayaa->nama ?? 'N/A' : 'N/A' }}</p>
+                        <p class="card-text mb-2"><b>Keamanan:</b> <br> {{ $item->keamanan ? $item->keamanann->nama ?? 'N/A' : 'N/A' }}</p>
+                        <p class="card-text mb-2"><b>Ukuran ruangan:</b> <br> {{ $item->ukuranRuangan ? $item->ukuranRuangan->nama ?? 'N/A' : 'N/A' }}</p>
+                        <p class="card-text mb-2"><b>Fasilitas:</b> <br>{{ $item->fasilitas ? $item->fasilitass->nama ?? 'N/A' : 'N/A' }}</p>
+                        <p class="card-text mb-2"><b>Batas jam malam:</b> <br>{{ $item->batasJamMalam ? $item->batasJamMalam->nama ?? 'N/A' : 'N/A' }}</p>
+                        <p class="card-text mb-2"><b>Jenis listrik:</b> <br> {{ $item->jenisListrik ? $item->jenisListrik->nama ?? 'N/A' : 'N/A' }}</p>
+                        <p class="card-text"><b>Kebersihan:</b> <br> {{ $item->kebersihanKos ? $item->kebersihanKos->nama ?? 'N/A' : 'N/A' }}</p>
                     </div>
                 </div>
             </div>

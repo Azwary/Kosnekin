@@ -52,16 +52,16 @@ class Penilaian extends Component
     {
         $kriteria = kriteria::all();
 
-        foreach ($kriteria as $kriteria) {
-            if ($kriteria->jenis == 'Cost') {
-                $minNilai = penilaian::where('kode_kos', $newId)->min('nilai');
-                $calculatedNilai = $minNilai / $nilai; // Assuming $nilai is defined somewhere
-            } elseif ($kriteria->jenis == 'Benefit') {
-                $maxNilai = penilaian::where('kode_kos', $newId)->max('nilai');
-                $calculatedNilai = $nilai / $maxNilai; // Assuming $nilai is defined somewhere
-            }
-            // Perform further operations with $calculatedNilai here
-        }
+        // foreach ($kriteria as $kriteria) {
+        //     if ($kriteria->jenis == 'Cost') {
+        //         $minNilai = penilaian::where('kode_kos', $newId)->min('nilai');
+        //         $calculatedNilai = $minNilai / $nilai; // Assuming $nilai is defined somewhere
+        //     } elseif ($kriteria->jenis == 'Benefit') {
+        //         $maxNilai = penilaian::where('kode_kos', $newId)->max('nilai');
+        //         $calculatedNilai = $nilai / $maxNilai; // Assuming $nilai is defined somewhere
+        //     }
+        //     // Perform further operations with $calculatedNilai here
+        // }
 
 
         if ($relation && isset($relation->bobot)) {

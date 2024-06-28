@@ -59,15 +59,15 @@
                                 <td>{{ $item->id }}</td>
                                 <td>{{ $item->nama_kos }}</td>
                                 <td>{{ $item->alamat }}</td>
-                                <td>{{ $item->jarak_kos }}</td>
-                                <td>{{ $item->biaya }}</td>
-                                <td>{{ $item->fasilitas }}</td>
-                                <td>{{ $item->lokasi_pendukung }}</td>
-                                <td>{{ $item->keamanan }}</td>
-                                <td>{{ $item->ukuran_ruangan }}</td>
-                                <td>{{ $item->batas_jam_malam }}</td>
-                                <td>{{ $item->jenis_listrik }}</td>
-                                <td>{{ $item->kebersihan_kos }}</td>
+                                <td>{{ $item->jarak ? $item->jarak->nama ?? 'N/A' : 'N/A' }}</td>
+                                <td>{{ $item->biaya ? $item->biayaa->nama ?? 'N/A' : 'N/A' }}</td>
+                                <td>{{ $item->fasilitas ? $item->fasilitass->nama ?? 'N/A' : 'N/A' }}</td>
+                                <td>{{ $item->lokasiPendukung ? $item->lokasiPendukung->nama ?? 'N/A' : 'N/A' }}</td>
+                                <td>{{ $item->keamanan ? $item->keamanann->nama ?? 'N/A' : 'N/A' }}</td>
+                                <td>{{ $item->ukuranRuangan ? $item->ukuranRuangan->nama ?? 'N/A' : 'N/A' }}</td>
+                                <td>{{ $item->batasJamMalam ? $item->batasJamMalam->nama ?? 'N/A' : 'N/A' }}</td>
+                                <td>{{ $item->jenisListrik ? $item->jenisListrik->nama ?? 'N/A' : 'N/A' }}</td>
+                                <td>{{ $item->kebersihanKos ? $item->kebersihanKos->nama ?? 'N/A' : 'N/A' }}</td>
                                 <td>
                                     <button wire:click="Edit('{{ $item->id }}')"
                                         class="btn btn-success btn-sm">Ubah</button>
