@@ -20,6 +20,7 @@ class datakos extends Model
     protected $fillable = [
         'id',
         'nama_kos',
+        'image',
         'alamat',
         'jarak_kos',
         'biaya',

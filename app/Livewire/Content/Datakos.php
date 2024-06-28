@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Content;
 
+use Livewire\WithFileUploads;
 use App\Models\batas_jam_malam;
 use App\Models\biaya;
 use App\Models\datakos as ModelsDatakos;
@@ -17,9 +18,12 @@ use Illuminate\Support\Str;
 
 class Datakos extends Component
 {
+    use WithFileUploads;
+
     public $main = true;
     public $add = false;
     public $ubah = false;
+    public $image;
     public $Datakos, $kodekos;
     public $nama_kos, $alamat, $jarak_kos, $biaya, $fasilitas, $lokasi_pendukung, $keamanan, $ukuran_ruangan, $batas_jam_malam, $jenis_listrik, $kebersihan_kos;
     public $jarak_kos_options, $biaya_options, $fasilitas_options, $lokasi_pendukung_options, $keamanan_options, $ukuran_ruangan_options, $batas_jam_malam_options, $jenis_listrik_options, $kebersihan_kos_options;
@@ -36,6 +40,8 @@ class Datakos extends Component
         'batas_jam_malam' => 'required|string',
         'jenis_listrik' => 'required|string',
         'kebersihan_kos' => 'required|string',
+        'image' => 'required|file|max:10240', // Max 10MB
+
     ];
 
     public function mount()
@@ -142,9 +148,14 @@ class Datakos extends Component
         // Format the new ID to have a two-digit number
         $newId = 'A' . str_pad($newIdNumber, 2, '0', STR_PAD_LEFT);
 
+        // Generate the file name based on the 'nama_kos'
+        $fileName = $this->nama_kos . '_' . time() . '.' . $this->image->getClientOriginalExtension();
+        $path = $this->image->storeAs('public/images', $fileName);
+
         $data = [
             'id' => $newId,
             'nama_kos' => $this->nama_kos,
+            'image' => 'storage/images/' . $fileName,
             'alamat' => $this->alamat,
             'jarak_kos' => $this->jarak_kos,
             'biaya' => $this->biaya,
@@ -158,15 +169,13 @@ class Datakos extends Component
             'application_sent' => now(),
         ];
 
-        // Use dd() to dump and die to see if the data is correct
-        // dd($data);
-
         ModelsDatakos::create($data);
 
-        session()->flash('message', 'User created successfully.');
+        session()->flash('message', 'Data successfully created.');
 
         return redirect()->to('datakos');
     }
+
     public function delete($id)
     {
         $kriteriaa = ModelsDatakos::findOrFail($id);

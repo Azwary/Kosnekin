@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('kos', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('nama_kos');
+            $table->string('image');
             $table->string('alamat');
             $table->string('jarak_kos');
             $table->string('biaya');

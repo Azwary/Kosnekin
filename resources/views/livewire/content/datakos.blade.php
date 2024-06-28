@@ -106,6 +106,10 @@
                     <input type="text" class="form-control" id="nama_kos" wire:model="nama_kos" required>
                 </div>
                 <div class="form-group">
+                    <label for="image">Foto kos</label>
+                    <input type="file" class="form-control" id="image" wire:model="image" required>
+                </div>
+                <div class="form-group">
                     <label for="alamat">Alamat</label>
                     <input type="text" class="form-control" id="alamat" wire:model="alamat" required>
                 </div>
