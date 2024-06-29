@@ -9,12 +9,13 @@ class penilaian extends Model
 {
     use HasFactory;
     protected $table = 'penilaian';
-    // protected $keyType = 'string';
+    protected $keyType = 'string';
     // protected $softDelete = true;
     // public $incrementing = false;
     // Tentukan kolom yang dapat diisi secara massal
     protected $fillable = [
         'id',
+        'nama_kos',
         'nilai'
         // 'nama_kos',
         // 'alamat',

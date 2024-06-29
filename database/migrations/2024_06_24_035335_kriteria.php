@@ -25,14 +25,14 @@ return new class extends Migration
         // Inserting initial data
         DB::table('kriteria')->insert([
             ['id' => 'C01', 'nama_kriteria' => 'Jarak', 'jenis' => 'Cost', 'bobot' => 15],
-            ['id' => 'C02', 'nama_kriteria' => 'Biaya', 'jenis' => 'Cost', 'bobot' => 20],
+            ['id' => 'C02', 'nama_kriteria' => 'Biaya', 'jenis' => 'Cost', 'bobot' => 15],
             ['id' => 'C03', 'nama_kriteria' => 'Fasilitas', 'jenis' => 'Benefit', 'bobot' => 15],
             ['id' => 'C04', 'nama_kriteria' => 'Lokasi Pendukung', 'jenis' => 'Benefit', 'bobot' => 10],
             ['id' => 'C05', 'nama_kriteria' => 'Keamanan', 'jenis' => 'Benefit', 'bobot' => 10],
             ['id' => 'C06', 'nama_kriteria' => 'Ukuran Ruangan', 'jenis' => 'Benefit', 'bobot' => 5],
             ['id' => 'C07', 'nama_kriteria' => 'Batas Jam Malam', 'jenis' => 'Cost', 'bobot' => 5],
             ['id' => 'C08', 'nama_kriteria' => 'Jenis Listrik', 'jenis' => 'Benefit', 'bobot' => 5],
-            ['id' => 'C09', 'nama_kriteria' => 'Kebersihan Kos', 'jenis' => 'Cost', 'bobot' => 15],
+            ['id' => 'C09', 'nama_kriteria' => 'Kebersihan Kos', 'jenis' => 'Cost', 'bobot' => 10],
         ]);
     }
 

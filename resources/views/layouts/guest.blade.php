@@ -36,7 +36,8 @@
             </div>
         </div>
     </body> --}}
-    <body class="bg-[#01FE87]">
+    <body class="bg-[#405ba9] ">
+    {{-- <body class="bg-blue-600 "> --}}
         <div class="container">
 
             <!-- Outer Row -->

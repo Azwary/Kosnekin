@@ -138,6 +138,19 @@
         <!-- Divider -->
         <hr class="sidebar-divider">
 
+        <div>
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Pencarian
+            </div>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('pencarian') }}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Pencarian Kos</span></a>
+            </li>
+        </div>
         @auth
             <div>
                 <!-- Heading -->
@@ -161,27 +174,13 @@
 
                 <!-- Nav Item - Charts -->
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('penilaian') }}" >
-                <i class="fas fa-fw fa-chart-area"></i>
-                <span>Penilaian</span></a>
-            </li>
-        </div>
-        @else
-        <div>
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Pencarian
+                    <a class="nav-link" href="{{ route('penilaian') }}">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>Penilaian</span></a>
+                </li>
             </div>
+        @endauth
 
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('pencarian') }}">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Pencarian Kos</span></a>
-            </li>
-    </div>
-
-      @endauth
 
 
 

@@ -9,8 +9,9 @@ class kriteria extends Model
 {
     use HasFactory;
     protected $table = 'kriteria';
+    protected $keyType = 'string';
     protected $fillable = [
-        'kode',
+        'id',
         'nama_kriteria',
         'jenis',
         'bobot'
