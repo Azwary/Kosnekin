@@ -14,7 +14,6 @@ Route::view('ex', 'welcome');
 Route::get('/', Home::class)->name('home');
 Route::get('pencarian', Pencarian::class)->name('pencarian');
 
-Route::get('penilaian', Penilaian::class)->name('penilaian');
 
 Route::middleware(['auth'])->group(function () {
     Route::view('dashboard', 'dashboard')
@@ -27,6 +26,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('kriteria', Kriteria::class)->name('kriteria');
     Route::get('datakos', Datakos::class)->name('datakos');
     Route::get('penilaian', Penilaian::class)->name('penilaian');
+
 });
 
 

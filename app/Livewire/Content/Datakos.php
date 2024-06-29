@@ -11,6 +11,7 @@ use App\Models\jarak;
 use App\Models\jenis_listrik;
 use App\Models\keamanan;
 use App\Models\kebersihan_kos;
+use App\Models\kriteria;
 use App\Models\lokasi_pendukung;
 use App\Models\penilaian;
 use App\Models\ukuran_ruangan;
@@ -26,6 +27,7 @@ class Datakos extends Component
     public $ubah = false;
     public $image;
     public $datakos;
+    public $kriteria;
     // public $nilai = [];
     public $Datakos, $kodekos;
     public $nama_kos, $alamat, $jarak_kos, $biaya, $fasilitas, $lokasi_pendukung, $keamanan, $ukuran_ruangan, $batas_jam_malam, $jenis_listrik, $kebersihan_kos;
@@ -51,6 +53,7 @@ class Datakos extends Component
 
     public function mount()
     {
+        $this->kriteria = kriteria::all();
         $this->Datakos = ModelsDatakos::all();
         $this->jarak_kos_options = jarak::all();
         $this->biaya_options = biaya::all();
@@ -76,6 +79,7 @@ class Datakos extends Component
 
     public function render()
     {
+
         return view('livewire.content.datakos', [
             'Datakos' => $this->Datakos,
             'jarak_kos_options' => $this->jarak_kos_options,
@@ -168,7 +172,8 @@ class Datakos extends Component
 
         // Generate the file name based on the 'nama_kos'
         $fileName = $this->nama_kos . '.' . $this->image->getClientOriginalExtension();
-        $path = $this->image->storeAs('public', $fileName);
+        // $path = $this->image->storeAs('public', $fileName);
+        $path = $this->image->store('images', 'public');
 
         $data = [
             'id' => $newId,
@@ -188,6 +193,152 @@ class Datakos extends Component
 
         // Create the datakos entry
         ModelsDatakos::create($data);
+
+        $kriteriaCollection = Kriteria::all();
+
+        // Separate Cost and Benefit kriteria IDs
+        $costKriteriaID = $kriteriaCollection->where('jenis', 'Cost')->pluck('id')->toArray();
+        $benefitKriteriaID = $kriteriaCollection->where('jenis', 'Benefit')->pluck('id')->toArray();
+
+        $options = [];
+        $nilai = [];
+
+        // Process each kriteria to fetch and store bobot values
+        foreach ($kriteriaCollection as $kriteria) {
+            switch ($kriteria->id) {
+                case 'C01':
+                    $jarak = Jarak::findOrFail($this->jarak_kos);
+                    $options['jarak_kos'] = $jarak->bobot;
+                    $nilai[] = ['id' => 'C01', 'nilai' => $jarak->bobot];
+                    break;
+                case 'C02':
+                    $biaya = Biaya::findOrFail($this->biaya);
+                    $options['biaya'] = $biaya->bobot;
+                    $nilai[] = ['id' => 'C02', 'nilai' => $biaya->bobot];
+                    break;
+                case 'C03':
+                    $fasilitas = Fasilitas::findOrFail($this->fasilitas);
+                    $options['fasilitas'] = $fasilitas->bobot;
+                    $nilai[] = ['id' => 'C03', 'nilai' => $fasilitas->bobot];
+                    break;
+                case 'C04':
+                    $lokasi_pendukung = Lokasi_pendukung::findOrFail($this->lokasi_pendukung);
+                    $options['lokasi_pendukung'] = $lokasi_pendukung->bobot;
+                    $nilai[] = ['id' => 'C04', 'nilai' => $lokasi_pendukung->bobot];
+                    break;
+                case 'C05':
+                    $keamanan = Keamanan::findOrFail($this->keamanan);
+                    $options['keamanan'] = $keamanan->bobot;
+                    $nilai[] = ['id' => 'C05', 'nilai' => $keamanan->bobot];
+                    break;
+                case 'C06':
+                    $ukuran_ruangan = Ukuran_ruangan::findOrFail($this->ukuran_ruangan);
+                    $options['ukuran_ruangan'] = $ukuran_ruangan->bobot;
+                    $nilai[] = ['id' => 'C06', 'nilai' => $ukuran_ruangan->bobot];
+                    break;
+                case 'C07':
+                    $batas_jam_malam = Batas_jam_malam::findOrFail($this->batas_jam_malam);
+                    $options['batas_jam_malam'] = $batas_jam_malam->bobot;
+                    $nilai[] = ['id' => 'C07', 'nilai' => $batas_jam_malam->bobot];
+                    break;
+                case 'C08':
+                    $jenis_listrik = Jenis_listrik::findOrFail($this->jenis_listrik);
+                    $options['jenis_listrik'] = $jenis_listrik->bobot;
+                    $nilai[] = ['id' => 'C08', 'nilai' => $jenis_listrik->bobot];
+                    break;
+                case 'C09':
+                    $kebersihan_kos = Kebersihan_kos::findOrFail($this->kebersihan_kos);
+                    $options['kebersihan_kos'] = $kebersihan_kos->bobot;
+                    $nilai[] = ['id' => 'C09', 'nilai' => $kebersihan_kos->bobot];
+                    break;
+            }
+        }
+
+        // dd($benefitKriteriaID);
+
+        // Dump and inspect $nilai to ensure correct data structure and values
+        // dd($nilai);
+
+        // Calculate min_cost and max_benefit based on fetched values
+        $min_cost = collect($nilai)->whereIn('id', $costKriteriaID)->min('nilai');
+        $max_benefit = collect($nilai)->whereIn('id', $benefitKriteriaID)->max('nilai');
+
+        // Normalize nilai based on their jenis (Cost or Benefit)
+        foreach ($nilai as &$item) {
+            if (in_array($item['id'], $costKriteriaID)) {
+                // $item['normalized_value'] = $item['nilai'] / $min_cost; // Normalize Cost criteria
+                // $item['normalized_value'] = 1 / $min_cost; // Normalize Cost criteria
+                $item['normalized_value'] = 1 / $item['nilai']; // Normalize Cost criteria
+            } elseif (in_array($item['id'], $benefitKriteriaID)) {
+                $item['normalized_value'] = $item['nilai'] / 4 ; // Normalize Benefit criteria
+            }
+
+            // Convert normalized_value to float if necessary
+            $item['normalized_value'] = (float) $item['normalized_value'];
+        }
+        unset($item);
+
+        foreach ($nilai as &$items) {
+            // Dapatkan nilai bobot yang sesuai dari tabel kriteria berdasarkan id kriteria
+            $kriteria = Kriteria::findOrFail($items['id']); // Misalnya, asumsikan bobot dapat diakses dengan $kriteria->bobot
+            // Tambahkan bobot dari tabel kriteria ke nilai saat ini
+            $items['subtotal'] = $items['normalized_value'] + $kriteria->bobot;
+
+            // Convert normalized_value to float if necessary
+            $items['normalized_value'] = (float) $items['normalized_value'];
+        }
+
+        $total = collect($nilai)->sum('subtotal');
+        unset($items);
+        // dd($max_benefit);
+
+        // Unset reference
+
+        // dd($total);
+        // Display the calculated values for verification
+        // dd($max_benefit);
+        // dd($nilai);
+        // dd($options);
+
+        $data2 = [
+            'id' => $newId,
+            'nama_kos' => $this->nama_kos,
+            'nilai' => $total,
+
+        ];
+
+        // Create the datakos entry
+        penilaian::create($data2);
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // $calculatedNilai = [];
+        // if (!empty($costKriteriaBobots)) {
+        //     $minBobot = min($costKriteriaBobots);
+        //     foreach ($costKriteriaBobots as $bobot) {
+        //         $calculatedNilai[] = $bobot / $minBobot;
+        //     }
+        // }
+        // $calculatedNilai = [];
+        // if (!empty($costKriteriaBobots)) {
+        //     $minBobot = min($costKriteriaBobots);
+        //     foreach ($costKriteriaBobots as $bobot) {
+        //         $calculatedNilai[] = $bobot / $minBobot;
+        //     }
+        // }
+
+        // dd($calculatedNilai);
+
 
         // Calculate and store penilaian
         // foreach ($this->nilai as $kriteriaId => $nilai) {

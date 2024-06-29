@@ -28,8 +28,6 @@
                                                     <th>C7</th>
                                                     <th>C8</th>
                                                     <th>C9</th>
-                                                    <th>Total</th>
-                                                    {{-- <th>Aksi</th> --}}
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -45,7 +43,6 @@
                                                 <td>{{ $datakoss->batasJamMalam ? $datakoss->batasJamMalam->bobot ?? 'N/A' : 'N/A' }}</td>
                                                 <td>{{ $datakoss->jenisListrik ? $datakoss->jenisListrik->bobot ?? 'N/A' : 'N/A' }}</td>
                                                 <td>{{ $datakoss->kebersihanKos ? $datakoss->kebersihanKos->bobot ?? 'N/A' : 'N/A' }}</td>
-                                                <td>{{ $this->calculateTotal($datakoss) }}</td>
                                             </tr>
                                             @endforeach
                                             </tbody>
@@ -72,7 +69,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($datakos as $penilai)
+                                                @foreach ($penilaian as $penilai)
                                                     <tr>
                                                         <td>{{ $penilai->id }}</td>
                                                         <td>{{ $penilai->nama_kos }}</td>
