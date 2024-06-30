@@ -31,8 +31,8 @@ return new class extends Migration
             ['id' => 'C05', 'nama_kriteria' => 'Keamanan', 'jenis' => 'Benefit', 'bobot' => 10],
             ['id' => 'C06', 'nama_kriteria' => 'Ukuran Ruangan', 'jenis' => 'Benefit', 'bobot' => 15],
             ['id' => 'C07', 'nama_kriteria' => 'Batas Jam Malam', 'jenis' => 'Cost', 'bobot' => 5],
-            ['id' => 'C08', 'nama_kriteria' => 'Jenis Listrik', 'jenis' => 'Benefit', 'bobot' => 5],
-            ['id' => 'C09', 'nama_kriteria' => 'Kebersihan Kos', 'jenis' => 'Cost', 'bobot' => 10],
+            ['id' => 'C08', 'nama_kriteria' => 'Jenis Listrik', 'jenis' => 'Cost', 'bobot' => 5],
+            ['id' => 'C09', 'nama_kriteria' => 'Kebersihan Kos', 'jenis' => 'Benefit', 'bobot' => 10],
         ]);
     }
 
