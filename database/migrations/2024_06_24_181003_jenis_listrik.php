@@ -21,8 +21,8 @@ return new class extends Migration
 
         // Insert default values
         DB::table('jenis_listrik')->insert([
-            ['nama' => 'Pascabayar/bulanan','bobot'=>'3'],
-            ['nama' => 'Token/listrik isi ulang','bobot'=>'7'],
+            ['nama' => 'Pascabayar/bulanan', 'bobot' => '1'],
+            ['nama' => 'Token/listrik isi ulang', 'bobot' => '4'],
 
         ]);
     }

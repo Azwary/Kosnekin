@@ -270,7 +270,7 @@ class Datakos extends Component
                 // $item['normalized_value'] = 1 / $min_cost; // Normalize Cost criteria
                 $item['normalized_value'] = 1 / $item['nilai']; // Normalize Cost criteria
             } elseif (in_array($item['id'], $benefitKriteriaID)) {
-                $item['normalized_value'] = $item['nilai'] / 4 ; // Normalize Benefit criteria
+                $item['normalized_value'] = $item['nilai'] / 4; // Normalize Benefit criteria
             }
 
             // Convert normalized_value to float if necessary
@@ -282,7 +282,7 @@ class Datakos extends Component
             // Dapatkan nilai bobot yang sesuai dari tabel kriteria berdasarkan id kriteria
             $kriteria = Kriteria::findOrFail($items['id']); // Misalnya, asumsikan bobot dapat diakses dengan $kriteria->bobot
             // Tambahkan bobot dari tabel kriteria ke nilai saat ini
-            $items['subtotal'] = $items['normalized_value'] + $kriteria->bobot;
+            $items['subtotal'] = $items['normalized_value'] * $kriteria->bobot;
 
             // Convert normalized_value to float if necessary
             $items['normalized_value'] = (float) $items['normalized_value'];
