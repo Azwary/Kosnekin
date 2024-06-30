@@ -14,7 +14,7 @@
                     class="relative card w-full max-w-sm rounded-lg overflow-hidden shadow-lg m-4 transform transition-transform duration-300 hover:scale-105">
                     @php
                         // Ambil semua data penilaian yang diurutkan berdasarkan nilai
-                        $penilaians = App\Models\penilaian::orderBy('nilai', 'desc')->get();
+                        $penilaians = App\Models\penilaian::orderBy('nilai', 'asc')->get();
                     @endphp
 
                     @foreach ($penilaians as $index => $penilaian)
